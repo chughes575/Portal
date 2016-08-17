@@ -1,0 +1,9 @@
+C:\nexus 7\AppleProcessing\obj\Release\AppleProcessing.csprojResolveAssemblyReference.cache
+C:\nexus 7\AppleProcessing\bin\Release\AppleProcessing.exe.config
+C:\nexus 7\AppleProcessing\bin\Release\AppleProcessing.exe
+C:\nexus 7\AppleProcessing\bin\Release\AppleProcessing.pdb
+C:\nexus 7\AppleProcessing\obj\Release\AppleProcessing.exe
+C:\nexus 7\AppleProcessing\obj\Release\AppleProcessing.pdb
+C:\nexus 7\AppleProcessing\bin\Release\ActiveUp.Net.Common.dll
+C:\nexus 7\AppleProcessing\bin\Release\ActiveUp.Net.Imap4.dll
+C:\nexus 7\AppleProcessing\bin\Release\ActiveUp.Net.Mail.dll

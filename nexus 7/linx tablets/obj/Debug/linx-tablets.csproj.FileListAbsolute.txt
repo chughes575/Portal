@@ -1,0 +1,11 @@
+C:\nexus 7\linx tablets\bin\linx-tablets.dll
+C:\nexus 7\linx tablets\bin\linx-tablets.pdb
+C:\nexus 7\linx tablets\bin\Microsoft.Web.Infrastructure.dll
+C:\nexus 7\linx tablets\bin\Microsoft.Web.Infrastructure.xml
+C:\nexus 7\linx tablets\obj\Debug\linx-tablets.dll
+C:\nexus 7\linx tablets\obj\Debug\linx-tablets.pdb
+C:\nexus 7\linx tablets\bin\Renci.SshNet.dll
+C:\nexus 7\linx tablets\obj\Debug\linx-tablets.csprojResolveAssemblyReference.cache
+C:\nexus 7\linx tablets\bin\Tamir.SharpSSH.dll
+C:\nexus 7\linx tablets\bin\PortalCommon.dll
+C:\nexus 7\linx tablets\bin\PortalCommon.pdb

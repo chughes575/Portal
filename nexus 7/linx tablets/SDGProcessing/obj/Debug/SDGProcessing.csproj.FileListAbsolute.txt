@@ -1,0 +1,6 @@
+C:\nexus 7\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.exe.config
+C:\nexus 7\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.exe
+C:\nexus 7\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.pdb
+C:\nexus 7\linx tablets\SDGProcessing\obj\Debug\SDGProcessing.csprojResolveAssemblyReference.cache
+C:\nexus 7\linx tablets\SDGProcessing\obj\Debug\SDGProcessing.exe
+C:\nexus 7\linx tablets\SDGProcessing\obj\Debug\SDGProcessing.pdb

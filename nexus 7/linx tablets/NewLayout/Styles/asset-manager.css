@@ -1,0 +1,422 @@
+
+body 
+{
+	background-image: none;
+	background-color: #414a56;
+}
+
+#form1 
+{
+	width: 1128px;
+	height: 628px;
+	padding: 15px;
+	overflow-x: visible;
+	overflow-y: hidden;
+}
+
+#txAjaxAssetAction,
+#txAssetAction 
+{
+	display: none;
+}
+
+.header,
+.footer, 
+.main-content
+{
+	width: 100%;
+	color: #fff;
+}
+
+.header #header-title 
+{
+	height: 37px;
+	padding: 0 25px 0 0;
+	line-height: normal;
+	color: #fff;
+}
+
+.header #header-rhs 
+{
+	float: right;
+	color: #fff;
+}
+
+.header, 
+.header a
+{
+	color: #fff;
+}
+
+.header #header-message 
+{
+	margin: 2px 25px 0 0;
+	float: right;
+	margin-left: 25px; 
+	font-size: 12px;
+}
+
+.col-left 
+{
+	width: 650px;
+}
+
+.col-right 
+{
+	width: 420px;
+	float: right;
+}
+
+#totalsOverview 
+{
+	width: 160px;
+}
+
+#totalsOverview ul 
+{
+	list-style: none;
+	margin: 0; 
+	padding: 0;
+}
+
+#totalsOverview li 
+{
+	padding: 3px;
+}
+
+#totalsOverview li.last {
+	margin: 15px 0 0 0;
+	padding: 15px 3px 3px 3px; 
+	border-top: 1px solid #999;
+}
+
+#totalsOverview span 
+{
+	float: right;
+}
+
+#assetPanels 
+{
+	padding: 0 0 0 15px;
+	width: 440px; 
+	float: right;
+	border-left: 1px solid #999;
+}
+
+#assetPanels
+{
+	font-size: 12px;
+}
+
+#assetPanels  h4 
+{
+	margin: 0 0 15px 0;
+	font-size: 14px;
+}
+
+#lbTotalDocuments, 
+#lbTotalImages, 
+#lbTotalMedia, 
+#lbTotalOther, 
+#lbPrivateFiles, 
+#lbRelatedFolders 
+{
+	clear:both;
+}
+
+#assetPanelDocument, 
+#assetPanelImage, 
+#assetPanelMedia, 
+#assetPanelOther, 
+#assetPreviewPanel 
+{
+	width: 400px;
+}
+
+.asset-panel-row  
+{
+	margin: 0 0 15px 0;
+}
+
+#assetPanels .asset-panel-row  
+{
+	line-height: 28px;
+}
+
+#assetPanels .asset-control-checkbox
+{
+	margin: 5px 0 0 0;
+}
+
+#assetPreviewPanel .asset-panel-row 
+{
+	line-height: 16px;
+}
+
+.asset-control-checkbox, 
+.asset-control-icon, 
+.asset-attribute, 
+.folder-control-checkbox, 
+.folder-control-icon, 
+.folder-attribute, 
+.folder-asset-total 
+{
+	padding: 5px;
+	vertical-align: middle;
+}
+
+.asset-control-icon, 
+.folder-control-icon 
+{
+	cursor: pointer;
+}
+
+.asset-control-icon img
+{
+	width: 30px;
+	height: 30px;
+}
+
+#access-level-wrapper 
+{
+	margin: 7px 0 0 20px;
+	width: 280px;
+}
+
+#access-level-wrapper .checkbox,
+.asset-control-checkbox .checkbox
+{
+	margin-left: -20px;
+	visibility: hidden
+}
+
+#access-level-wrapper .checkbox-icon,
+.asset-control-checkbox .checkbox-icon
+{
+	width: 40px;
+	height: 40px;
+	margin-top: -12px;
+    background-image: url(/images/icon-locked.png);
+}
+
+#access-level-wrapper .checkbox-icon.checked,
+.asset-control-checkbox .checkbox-icon.checked
+{
+    background-image: url(/images/icon-unlocked.png);
+}
+
+#assetPreviewPanel a 
+{
+	outline: none;
+}
+
+#assetPreviewPanel .file-placeholder 
+{
+	margin: 0 15px 0 0;
+}
+
+#assetPreviewPanel .file-name 
+{
+	font-weight: bold;
+}
+
+#assetPreviewPanel .file-name, 
+#assetPreviewPanel .file-attribute 
+{
+	padding: 2px 0;
+	clear:both;
+}
+
+#txNotes, #txPrivateNotes, 
+#txTags 
+{
+	display: none;
+}
+
+/* file upload */
+
+/*custom upload elements*/
+#assetUpload h4 {
+	margin: 0 0 15px 0;
+}
+
+#assetUpload .customfile {
+	margin: 0 0 10px 0;
+}
+
+#upload-btn 
+{
+	margin: 10px 0 20px 0;
+}
+
+#btnUpload 
+{
+	margin: 0 0 0 2px;
+	padding: 4px 8px 4px 8px;
+	font-size: 8pt;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #0099cc;
+	border: 3px solid #ffffff;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-moz-box-shadow: 0 0 10px #ccc;
+	-webkit-box-shadow: 0 0 10px #ccc;
+	box-shadow: 0 0 10px #ccc;
+}
+
+.folder-control-icon img 
+{
+	width: 22px;
+	height: 22px;
+}
+
+#assetOverviewFolders 
+{
+	margin: 25px 0 10px 0;
+	padding: 25px 0 0 0;
+	width: 405px;
+	border-top: 1px solid #999;
+}
+
+#assetOverviewFolders.repository
+{
+	margin: 0 0 10px 0;
+	padding: 0;
+	width: 405px;
+	border: none;
+}
+
+#assetOverviewFolders h4
+{
+	margin-bottom: 15px;
+}
+
+.customfile-input
+{
+    position: absolute;
+    height: 100px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    z-index: 999;
+}
+
+.customfile
+{
+    width: 400px;
+    background: #666;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid #444;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+    position: relative;
+}
+
+.customfile-disabled
+{
+    opacity: .5;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    cursor: default;
+}
+
+.customfile-feedback
+{
+    display: block;
+    margin: 1px 1px 1px 5px;
+    font-size: 0.8em;
+    color: #fff;
+    font-style: italic;
+    padding: .5em .10em;
+}
+
+.customfile-feedback-populated
+{
+    color: #fff;
+    font-style: normal;
+    font-weight: bold;
+    padding-left: 20px;
+    background: url(images/fileinput/icon-generic.gif) left 4px no-repeat;
+}
+
+.customfile-button
+{
+    border: 1px solid #999;
+    background: #333 url(images/fileinput/bg-submit.gif) bottom repeat-x;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    width: 50px;
+    padding: .7em 1em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.8em;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+.customfile-hover .customfile-button, 
+.customfile-focus .customfile-button
+{
+    color:#111;
+    background: #aaa url(images/fileinput/bg-btn.png) bottom repeat-x;
+    border-color:#aaa;
+    padding: .7em 1em;
+}
+
+.customfile-focus .customfile-button
+{
+    outline: none;
+}
+
+/*file type icons*/
+.customfile-ext-jpg, 
+.customfile-ext-gif, 
+.customfile-ext-png, 
+.customfile-ext-jpeg, 
+.customfile-ext-bmp
+{
+    background-image: url(images/fileinput/icon-image.gif);
+    background-position: left center;
+}
+
+.customfile-ext-mp3, 
+.customfile-ext-mp4, 
+.customfile-ext-mov, 
+.customfile-ext-swf, 
+.customfile-ext-wav, 
+.customfile-ext-m4v
+{
+    background-image: url(images/fileinput/icon-media.gif);
+    background-position: left center;
+}
+
+.customfile-ext-zip, 
+.customfile-ext-tar, 
+.customfile-ext-sit
+{
+    background-image: url(images/fileinput/icon-zip.gif);
+    background-position: left center;
+}
+
+#ubtn
+{
+    margin: 0 0 0 10px;
+    padding: 11px  16px;
+    font-size: 12px;
+}
+
+.customfile
+{
+    width: 395px;
+}

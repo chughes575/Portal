@@ -1,0 +1,95 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DNP.master.cs" Inherits="linx_tablets.NewLayout.DNP" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+
+	<title>Debit Notes | Portal</title>
+
+	<link rel="stylesheet" type="text/css" href="Styles/MP/reset.css" />
+	<link rel="stylesheet" type="text/css" href="Styles/MP/jquery-ui-1.10.1.custom.css" />
+	<link rel="stylesheet" type="text/css" href="Styles/MP/colorbox.css" />
+	<link rel="stylesheet" type="text/css" href="Styles/MP/validation.css" />
+	<link rel="stylesheet" type="text/css" href="Styles/MP/framework.css?v=2" />
+	
+	<script type="text/javascript" src="Scripts/MP/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="Scripts/MP/jquery-ui-1.10.1.custom.js"></script>
+	<script type="text/javascript" src="Scripts/MP/notify.js"></script>
+	<script type='text/javascript' src='Scripts/MP/jquery.validate.js'></script>
+	<script type='text/javascript' src='Scripts/MP/jquery.colorbox.js'></script>
+	<script type='text/javascript' src='Scripts/MP/jquery.nav.js'></script>
+	<script type="text/javascript" src="Scripts/MP/utils.js?v=2"></script>
+	<script type="text/javascript" src="Scripts/MP/framework.js?v=2"></script>
+	<script type="text/javascript" src="Scripts/MP/global.js?v=2"></script>
+	<script type="text/javascript" src="Scripts/MP/form-manager.js?v=2"></script>
+
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+
+</head>
+<body >
+
+	<div ID="dvOverlay" runat="server"></div>
+	<form id="Form1" runat="server">
+
+		<div ID="contentWrapper">
+			<div ID="content">
+
+				<div class="header">
+
+					<div ID="topNav">
+						<ul>
+							<li class="home-link"><a href="<%= Page.ResolveClientUrl("~/")%>">Home</a></li>
+							<li>
+								<span><a href="<%= Page.ResolveClientUrl("~/claim-listing.aspx?v=repo")%>">Debit | Credit Notes</a></span>
+								<ul class="dd">
+									<li><a href="<%= Page.ResolveClientUrl("~/claim-form.aspx")%>">+&nbsp;&nbsp;Create Debit Note</a></li>
+									<li><a href="<%= Page.ResolveClientUrl("~/claim-listing.aspx?v=p")%>">Review Debit Notes (Buyers)</a></li>
+									<li><a href="<%= Page.ResolveClientUrl("~/claim-listing.aspx?v=ap")%>">Review Debit Notes (AP)</a></li>
+									<li><a href="<%= Page.ResolveClientUrl("~/claim-listing.aspx?v=dn")%>">Review Debit Notes (Created)</a></li>
+									<li><a href="<%= Page.ResolveClientUrl("~/claim-listing.aspx?v=repo")%>">Debit Note Repository</a></li>
+								</ul>
+							</li>
+							<li>
+								<span><a href="<%= Page.ResolveClientUrl("~/division-listing.aspx")%>">Divisions</a></span>
+								<ul class="dd">
+									<li><a href="<%= Page.ResolveClientUrl("~/division-form.aspx")%>">+&nbsp;&nbsp;Create Division</a></li>
+									<li><a href="<%= Page.ResolveClientUrl("~/division-listing.aspx")%>">Review Divisions</a></li>
+								</ul>
+							</li>
+							<li>
+								<span><a href="<%= Page.ResolveClientUrl("~/contact-listing.aspx")%>">Contacts</a></span>
+								<ul class="dd">
+									<li><a href="<%= Page.ResolveClientUrl("~/contact-form.aspx")%>">+&nbsp;&nbsp;Create Contact</a></li>
+									<li><a href="<%= Page.ResolveClientUrl("~/contact-listing.aspx")%>">Review Contacts</a></li>
+								</ul>
+							</li>
+						</ul>
+						
+						<div ID="dvSystemMessageNotification" runat="server">[ message available ]</div>
+
+					</div>
+				</div>
+
+				<div class="main-content"><asp:ContentPlaceHolder id="MainContent" runat="server"></asp:ContentPlaceHolder></div>
+				
+				<div class="footer">
+					<div ID="copyright-note">Debit Note Solution (DNP) &copy; Exertis <%: DateTime.Now.Year %></div>
+				</div>
+
+			</div>
+		</div>
+
+		<div ID="dvSystemMessage" style="display:none" runat="server">
+			 <div id="basic-template">
+				<a class="ui-notify-cross ui-notify-close" href="#">x</a>
+				<h1>#{title}</h1>
+				<p>#{text}</p>
+			</div>
+		</div>
+
+		<asp:HiddenField ID="hdnSystemMessage" runat="server" />
+		<asp:HiddenField ID="hdnPostBackCount" runat="server" />
+
+	</form>
+
+</body>
+</html>

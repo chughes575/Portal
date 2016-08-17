@@ -1,0 +1,502 @@
+
+.claim-header
+{
+	width: 1200px;
+}
+
+.row-1 
+{	
+	height: 50px;
+	line-height: 50px;
+}
+
+.row-1 #header-title
+{
+	font-size: 16px;
+	color: #fff;
+}
+
+.row-1 #header-owning-user
+{
+	float: right;
+}
+
+.row-2 .box
+{
+	min-height: 250px;
+	padding: 10px;
+	background-color: #333C48; 
+	color: #fff;
+	border: 1px solid #999;
+}
+
+.row-2 .box-1
+{
+	width: 406px;
+	margin: 0 5px 0 0;
+}
+
+.row-2 .box-2
+{
+	width: 406px;
+	margin: 0 5px;
+}
+
+.row-2 .box-3
+{
+	width: 300px;
+	float: right;
+}
+
+.row-2 ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+.row-2 li
+{
+	width: 405px;
+	margin: 0;
+	padding: 0;
+}
+
+.row-2 .box-2 ul
+{
+	margin: 15px 0 0 0;
+	padding: 0;
+}
+
+.row-2 .box-2 li
+{
+	padding: 1px 0;
+}
+
+.row-2 .box-3 li
+{
+	width: 293px;
+	margin: 0;
+	padding: 0;
+}
+
+.row-2 .box-3 span
+{
+	width: 100px;
+}
+
+.row-3
+{
+	width: 1200px;
+	padding: 20px 0 0 0;
+	color: #fff;
+}
+
+.row-3 .footer-content
+{
+	width: 1198px;
+}
+
+ /* 
+	 
+	 form elements
+	 
+	*/
+
+.row-1 #MainContent_tbDateRaised, 
+.row-1 #MainContent_tbRequestID, 
+.row-1 #MainContent_tbStatus
+{
+	min-width: 80px;
+	width: 80px;
+	margin: 0 0 0 15px;
+	font-weight: bold;
+	color: #fff;
+	background: transparent;
+	border: none;
+}
+
+.row-1 #MainContent_tbStatus
+{
+	width: 270px;
+}
+
+.row-2 span
+{ /* label */
+	width: 136px;
+	margin: 4px 0;
+	padding: 2px;
+	font-size: 10pt;
+	display: block;
+	float: left;
+}
+
+.row-2 select
+{
+	width: 256px;
+	margin: 4px 0;
+	padding: 4px 2px;
+}
+
+.row-2 input[type="text"]
+{
+	width: 250px;
+	margin: 4px 0;
+	padding: 4px;
+}
+
+.row-2 textarea
+{
+	width: 290px;
+	margin: 0 0 5px 0;
+	padding: 3px;
+}
+
+.row-2 #MainContent_cbTransmissionRequired
+{
+	margin-left: -2px;
+}
+
+
+.row-2 #MainContent_cblAdditionalRecipients
+{
+	margin-left: -4px;
+}
+
+.row-2 #MainContent_dvAdditionalRecipientsWrapper
+{
+	margin-top: 7px;
+}
+
+.row-2 #MainContent_cblAdditionalRecipients label
+{
+	margin-left: 10px;
+}
+
+.row-2 #MainContent_cblAdditionalRecipients input
+{
+	vertical-align: middle;
+}
+
+.row-2 #MainContent_dvAdditionalRecipientsWrapper
+{
+	height: 110px;
+	width: 255px;
+	border:none;
+	/*background-color: #f0f0f0;*/
+	overflow-y: scroll !important;
+	overflow-y: hidden !important;
+	/*color: #000;*/
+}
+
+.row-2 .box-3 input[type="text"]
+{
+	width: 165px;
+	margin: 4px 0;
+}
+
+.claim-header.row-3 #MainContent_lblControlMessage 
+{
+	height: 30px;
+	line-height: 30px;
+	padding: 0 0 0 20px; 
+	font-size: 15px;
+}
+
+.claim-header.row-3 #MainContent_btnSave,
+.claim-header.row-3 #MainContent_btnProceed,
+.claim-header.row-3 #MainContent_btnRollBack
+{
+	margin: 0 1px 0 0;
+	padding: 4px 15px;
+}
+
+.claim-header.row-3 .header-icon
+{
+	width: 30px;
+	height: 30px;
+	margin: 0 0 0 20px;
+	outline: none;
+}
+
+.claim-header.row-3 #claim-total
+{
+	margin: 0 20px 0 0;
+	padding: 7px 0;
+	font-size: 16px;
+	border: none;
+	float: right;
+}
+
+.claim-header.row-3 #MainContent_tbOutstandingAmount
+{
+	text-align: right;
+	font-weight: bold;
+	background-color: #666;
+	color: #fff;
+	border: none;
+}
+
+.claim-header span.reload-page
+{
+	margin: 0 0 0 15px;
+}
+
+.claim-header a.reload-page 
+{
+	text-decoration: none;
+	color: #fff;
+}
+
+.claim-header a.reload-page:hover 
+{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* 
+	
+	claim lines 
+	
+*/
+
+.claim-lines
+{
+	margin: 10px 0 0 0;
+	width: 1200px;
+	overflow: auto;
+}
+
+.claim-lines #paste-tool 
+{
+	vertical-align: middle;
+	background-color: transparent;
+	overflow: hidden;
+}
+
+.claim-lines #MainContent_NewClaimLineGV,
+.claim-lines #MainContent_ExistingClaimLineGV
+{
+	float: left;
+}
+
+.claim-lines #MainContent_NewClaimLineGV
+{
+	margin: 10px 0 20px 0;
+}
+
+.claim-lines #MainContent_ExistingClaimLineGV
+{
+	margin: 0;
+}
+
+.claim-lines #MainContent_dvClaimLineSearch
+{
+	margin: 10px 0;
+	float: left;
+}
+
+.claim-lines tr[data-asset-available="false"] td .line-icon.line-attachment
+{
+	background-image: url(/images/icon-folder-empty.png);
+	background-size: 100% 100%;
+	padding: 0;
+}
+
+.claim-lines tr[data-asset-available="true"] td .line-icon.line-attachment
+{
+	background-image: url(/images/icon-folder-full.png);
+	background-size: 100% 100%;
+	padding: 0;
+}
+
+#search-label
+{
+	padding: 4px 7px 0 0;
+	color: #fff;
+}
+
+#dvClaimLineSearch #MainContent_txClaimLineGV_Search
+{
+	width: 80px;
+} 
+
+#dvClaimLineSearch #MainContent_btnClaimLineGV_Search
+{
+	padding: 0;
+} 
+
+/* hide delete button for readonly claims */
+.action-column.read-only .line-icon.delete-btn 
+{
+	display: none;
+}
+
+.gridview .line-ref
+{
+	min-width: 70px;
+}
+
+.gridview .exertis-code
+{
+	min-width: 160px;
+}
+
+.gridview .supplier-code
+{
+	min-width: 160px;
+}
+
+.gridview .claim-ref
+{
+	min-width: 160px;
+}
+
+.gridview .description
+{
+	min-width: 140px;
+}
+
+.gridview .quantity
+{
+	min-width: 50px;
+}
+
+.gridview .original-cost
+{
+	min-width: 115px;
+}
+
+.gridview .new-cost
+{
+	min-width: 115px;
+}
+
+.gridview .delta
+{
+	min-width: 115px;
+}
+
+.gridview .total
+{
+	min-width: 115px;
+}
+
+.gridview .customer
+{
+	min-width: 200px;
+}
+
+.gridview .order-no
+{
+	min-width: 155px;
+}
+
+.gridview .comments
+{
+	min-width: 155px;
+}
+
+.gridview .date-raised
+{
+	min-width: 115px;
+}
+
+.gridview .invoice-no
+{
+	min-width: 155px;
+}
+
+.gridview .flexcol-2
+{
+	min-width: 115px;
+}
+
+.gridview .flexcol-3
+{
+	min-width: 115px;
+}
+
+.gridview .flexcol-4
+{
+	min-width: 115px;
+}
+
+.gridview .flexcol-5
+{
+	min-width: 115px;
+}
+
+.gridview .flexcol-6
+{
+	min-width: 115px;
+}
+
+.gridview .flexcol-7
+{
+	min-width: 115px;
+}
+
+.gridview .flexcol-8
+{
+	min-width: 115px;
+}
+
+.gridview .flexcol-9
+{
+	min-width: 115px;
+}
+
+.gridview .flexcol-10
+{
+	min-width: 115px;
+}
+
+.gridview .private-notes
+{
+	min-width: 115px;
+}
+
+/* 
+	
+	cut and paste 
+	
+*/
+
+textarea.paste-field 
+{
+	width: 80px;
+	height: 21px;
+	margin: 0 0 0 1px;
+	padding: 0;
+	overflow: hidden;
+	font-size: 11px;
+	text-align: left;
+	color: #fff;
+	border: none;
+	background-color: transparent;
+	float: left;
+	z-index: 10;
+}
+
+.paste-field-label 
+{
+	margin: 0 0 0 -67px;
+	height: 21px;
+	line-height: 21px;
+	vertical-align: middle;
+	z-index: 1;
+	opacity: 0.50;
+	-webkit-transition: opacity 0.15s linear;
+}
+
+.paste-field-label.in-focus 
+{
+	opacity: 0.25;
+}
+
+.paste-field-label.has-text 
+{
+	opacity: 0.0; -webkit-transition-duration: 0s;
+	z-index: -1;
+}
+

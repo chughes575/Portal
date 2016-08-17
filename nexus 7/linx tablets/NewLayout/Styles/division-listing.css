@@ -1,0 +1,138 @@
+﻿ 
+.divisions 
+{
+	width: 1200px;
+	margin: 0 0 70px 0;
+	position: relative;
+	/*overflow-x: scroll;*/
+}
+
+.divisions #MainContent_dvDivisionHeader 
+{
+	width: 100%;
+	height: 50px;
+	margin-top: 20px;
+	line-height: 50px;
+	background-color: #1c232c;
+	border: 1px solid #999;
+	color: #d2873b;
+}
+
+.divisions #search-label 
+{
+	padding: 0 7px 0 15px;
+}
+
+.divisions #MainContent_btnDivisionGV_Search 
+{
+	margin: 8px 5px 0 10px;
+	padding: 5px 15px;
+	float: left;
+}
+
+.divisions #MainContent_txDivisionGV_Search
+{
+	width: 150px;
+}
+
+.divisions #MainContent_ddDivisionGV_FilterVendor
+{
+	width: 340px;
+}
+
+.divisions #MainContent_ddDivisionGV_FilterCurrency
+{
+	width: 230px;
+}
+
+.divisions #MainContent_ddDivisionGV_FilterBU
+{
+	width: 230px;
+}
+
+.gridview .division
+{
+	width: 280px
+}
+
+.gridview .vendor
+{
+	width: 200px
+}
+
+.gridview .site-code
+{
+	width: 120px
+}
+
+.gridview .tax-code
+{
+	width: 70px
+}
+
+.gridview .business-unit
+{
+	width: 100px
+}
+
+.gridview .primary-contact
+{
+	width: 140px
+}
+
+.gridview .account-contact
+{
+	width: 140px
+}
+
+.gridview .division-input
+{
+	width: 270px
+}
+
+.gridview .vendor-input
+{
+	width: 190px
+}
+
+.gridview .site-code-input
+{
+	width: 110px
+}
+
+.gridview .tax-code-input
+{
+	width: 60px
+}
+
+.gridview .business-unit-input
+{
+	width: 90px
+}
+
+.gridview .primary-contact-input
+{
+	width: 130px
+}
+
+.gridview .account-contact-input
+{
+	width: 130px
+}
+
+.divisions tr[data-expired="true"]
+{
+	color: #cdcdcd;
+	font-style: italic;
+}
+
+.divisions tr[data-expired="true"] .edit-btn,
+.divisions tr[data-expired="true"] .submit-btn
+{
+	display: none;
+}
+
+.divisions tr[data-expired="false"] .duplicate-btn
+{
+	display: none;
+}

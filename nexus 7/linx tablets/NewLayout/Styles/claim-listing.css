@@ -1,0 +1,233 @@
+﻿
+.claims 
+{
+	width: 1200px;
+	margin: 0 0 70px 0;
+	position: relative;
+}
+
+.claims .gridview .row.exipred
+{
+	border: 1px solid red;
+}
+
+.claims #MainContent_dvClaimHeader 
+{
+	width: 100%;
+	height: 50px;
+	margin-top: 20px;
+	line-height: 50px;
+	background-color: #1c232c;
+	border: 1px solid #999;
+	color: #d2873b;
+}
+
+.claims #search-label 
+{
+	padding: 0 7px 0 15px;
+}
+
+.claims #MainContent_btnClaimGV_Search 
+{
+	margin: 8px 5px 0 10px;
+	padding: 5px 15px;
+	float: left;
+}
+
+.claims #MainContent_ddClaimGV_FilterVendor
+{
+	width: 365px;
+}
+
+.claims #MainContent_ddClaimGV_FilterClaimType
+{
+	width: 200px;
+}
+
+.claims #MainContent_ddClaimGV_FilterClaimStatus
+{
+	width: 150px;
+}
+
+.claims #MainContent_ddClaimGV_FilterUser
+{
+	width: 100px;
+}
+
+/* hide delete button for readonly claims */
+.claims .action-column.read-only .line-icon.delete-btn 
+{
+	display: none;
+}
+
+.gridview .request-id
+{
+	width: 40px;
+}
+
+.gridview .status
+{
+	width: 90px;
+}
+
+.gridview .outstanding
+{
+	width: 50px;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.gridview .currency
+{
+	width: 30px;
+}
+
+.gridview .vendor
+{
+	width: 175px;
+}
+
+.gridview .division
+{
+	width: 175px;
+}
+
+.gridview .reason
+{
+	width: 150px;
+}
+
+.gridview .sr-no
+{
+	width: 50px;
+}
+
+.gridview .dnr-id
+{
+	width: 50px;
+}
+
+.gridview .dn-no
+{
+	width: 60px;
+}
+
+.gridview .user
+{
+	width: 70px;
+}
+
+.gridview .request-id-input
+{
+	width: 30px;
+}
+
+.gridview .status-input
+{
+	width: 80px;
+}
+
+.gridview .outstanding-input
+{
+	width: 50px;
+}
+
+.gridview .currency-input
+{
+	width: 20px;
+}
+
+.gridview .vendor-input
+{
+	width: 165px;
+}
+
+.gridview .division-input
+{
+	width: 165px;
+}
+
+.gridview .reason-input
+{
+	width: 140px;
+}
+
+.gridview .sr-no-input
+{
+	width: 40px;
+}
+
+.gridview .dnr-id-input
+{
+	width: 40px;
+}
+
+.gridview .dn-no-input
+{
+	width: 50px;
+}
+
+.gridview .user-input
+{
+	width: 60px;
+}
+
+.claims tr[data-expired="true"]
+{
+	color: #cdcdcd;
+	font-style: italic;
+}
+
+.claims tr .edit-btn
+{
+	background-image: url(/images/icon-view.png);
+	background-size: 100% 100%;
+	padding: 0;
+}
+
+.claims tr[data-status="Draft"] .edit-btn,
+.claims tr[data-status="Rejected"] .edit-btn
+{
+	background-image: url(/images/icon-edit.png);
+}
+
+.claims tr[data-status="Oracle Error"] .edit-btn,
+.claims tr[data-expired="true"] .edit-btn
+{
+	background-image: url(/images/icon-issue.png);
+}
+
+.claims tr[data-asset-available="false"] td .line-icon.asset-btn
+{
+	background-image: url(/images/icon-folder-empty.png);
+	background-size: 100% 100%;
+	padding: 0;
+}
+
+.claims tr[data-asset-available="true"] td .line-icon.asset-btn
+{
+	background-image: url(/images/icon-folder-full.png);
+	background-size: 100% 100%;
+	padding: 0;
+}
+
+.claims tr[data-positive-claim="true"] td.currency,
+.claims tr[data-positive-claim="true"] td.outstanding
+{
+	color: #3cab44;
+	font-style: italic;
+}
+
+.claims tr[data-positive-claim="false"] td.currency,
+.claims tr[data-positive-claim="false"] td.outstanding
+{
+	color: #dc7120;
+	font-style: italic;
+}
+ 
+.claims tr[data-status="Oracle Error"] td.status
+{
+	color: #c85959;
+	font-style: normal;
+	font-weight: bold;
+}
