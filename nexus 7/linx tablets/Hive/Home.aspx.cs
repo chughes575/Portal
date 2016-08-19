@@ -20,7 +20,10 @@ namespace linx_tablets.Hive
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
+
+            gvOrdersSummary.DataSource = Common.runSQLDataset("exec [sp_bghome]");
+            gvOrdersSummary.DataBind();
             if (!Page.IsPostBack)
             {
                 string stockLevelSetup = Common.runSQLScalar("select configvalue from PortalConfig where ConfigKey='StockLevelsMethod' and CustomerID=5").ToString();
@@ -31,7 +34,7 @@ namespace linx_tablets.Hive
                 sqlDSKewillProductStockStatusReport.DataBind();
                 gvKewillProductStockStatusLastUpdate.DataBind();
             }
-            
+
 
         }
         protected void gvLastImportedForecastPortal_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -50,15 +53,44 @@ namespace linx_tablets.Hive
             }
 
         }
+        protected void DownloadFile(FileInfo file)
+        {
+            Response.Clear();
+
+            Response.ClearHeaders();
+
+            Response.ClearContent();
+
+            Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+
+            Response.AddHeader("Content-Length", file.Length.ToString());
+
+            //Response.ContentType = file.
+
+            Response.Flush();
+
+            Response.TransmitFile(file.FullName);
+
+            Response.End();
+        }
         private void runReport(string query, string filename)
         {
-            this.Session["ReportQuery"] = (object)query;
-            this.Session["ReportQueryIsSp"] = (object)false;
-            this.Session["ReportDelimiter"] = (object)",";
-            this.Session["ReportHasHeader"] = (object)true;
-            this.Session["ReportFileName"] = (object)filename;
-            this.Session["ReportTextQualifier"] = (object)"\"";
-            this.Response.Redirect("~/reporting/report-export-csv.aspx");
+            //this.Session["ReportQuery"] = (object)query;
+            //this.Session["ReportQueryIsSp"] = (object)false;
+            //this.Session["ReportDelimiter"] = (object)",";
+            //this.Session["ReportHasHeader"] = (object)true;
+            //this.Session["ReportFileName"] = (object)filename;
+            //this.Session["ReportTextQualifier"] = (object)"\"";
+            //this.Response.Redirect("~/reporting/report-export-csv.aspx");
+            string filePathD = @"C:\linx-tablets\replen files\";
+
+            filename = filename.Replace(".csv", ".xls");
+            DataSet dsConsignmentStock = Common.runSQLDataset(query);
+
+            PortalCommon.Excel.GenerateExcelSheetNew(dsConsignmentStock, "Download", filePathD + filename);
+
+            FileInfo file = new FileInfo(filePathD + filename);
+            DownloadFile(file);
         }
 
         protected void gvBundleProducts_RowDataBound(object source, GridViewRowEventArgs e)
@@ -82,8 +114,21 @@ namespace linx_tablets.Hive
             string updateVal = rbtnlstStockSetup.SelectedValue.ToString();
 
             string updateSQL = string.Format("update portalconfig set configvalue='{0}' where ConfigKey='StockLevelsMethod'", updateVal);
-                Common.runSQLNonQuery(updateSQL);
+            Common.runSQLNonQuery(updateSQL);
             ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('Stock Level Setup Updated.');", true);
+        }
+
+        protected void btnDownloadRollingDocument_Click(object sender, EventArgs e)
+        {
+
+            string filename = "BritishGas_Orders_Rolling_Report_" + Common.timestamp() + ".csv";
+            runReport("[sp_HiveBritishGasOrders]", filename);
+        }
+        protected void btnDownloadRollingDocument_outstanding_Click(object sender, EventArgs e)
+        {
+
+            string filename = "BritishGas_Orders_Rolling_Report_" + Common.timestamp() + ".csv";
+            runReport("[sp_HiveBritishGasOrders] 1", filename);
         }
     }
 }

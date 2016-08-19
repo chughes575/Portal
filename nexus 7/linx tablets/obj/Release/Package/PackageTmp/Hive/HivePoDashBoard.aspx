@@ -85,7 +85,7 @@ order by lastfiledate desc"></asp:SqlDataSource>
                     <div id="dvClaimHeader" class="gridviewHeader" runat="server">
                        
                         <asp:DropDownList ID="ddlStockStatusGV_FilterExertisStock" Width="220px" CssClass="filter-field" runat="server">
-                            <asp:ListItem Text="Exertis Stock" Selected="True" Value="All"></asp:ListItem>
+                            <asp:ListItem Text="Hive Stock" Selected="True" Value="All"></asp:ListItem>
                             <asp:ListItem Text="In Stock" Value="Zero"></asp:ListItem>
                             <asp:ListItem Text="Out Of Stock" Value="Not Zero"></asp:ListItem>
                         </asp:DropDownList>
@@ -98,6 +98,11 @@ order by lastfiledate desc"></asp:SqlDataSource>
                             <asp:ListItem Text="Backorders" Selected="True" Value="All"></asp:ListItem>
                             <asp:ListItem Text="Yes" Value="Backordered"></asp:ListItem>
                             <asp:ListItem Text="No" Value="No Backorders"></asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:DropDownList ID="ddlStockStatusGV_FilterCustomerAllocatedOrders" Width="220px" CssClass="filter-field" runat="server">
+                            <asp:ListItem Text="Allocated Orders" Selected="True" Value="All"></asp:ListItem>
+                            <asp:ListItem Text="Yes" Value="Allocated"></asp:ListItem>
+                            <asp:ListItem Text="No" Value="No Allocated"></asp:ListItem>
                         </asp:DropDownList>
                         <asp:DropDownList ID="ddlStockStatusGV_FilterSafetyRating" Visible="true" Width="220px" CssClass="filter-field" runat="server">
                             <asp:ListItem Text="Safety Rating (Show all)" Selected="True" Value="All"></asp:ListItem>

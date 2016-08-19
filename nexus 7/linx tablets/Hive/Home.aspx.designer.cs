@@ -22,24 +22,6 @@ namespace linx_tablets.Hive {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlDSKewillProductStockStatusReport;
         
         /// <summary>
-        /// sqlDSBundleproducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlDSBundleproducts;
-        
-        /// <summary>
-        /// sqlDSOrderSummary control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlDSOrderSummary;
-        
-        /// <summary>
         /// gvOrdersSummary control.
         /// </summary>
         /// <remarks>
@@ -47,6 +29,24 @@ namespace linx_tablets.Hive {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvOrdersSummary;
+        
+        /// <summary>
+        /// btnDownloadRollingDocument control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDownloadRollingDocument;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// gvKewillProductStockStatusLastUpdate control.

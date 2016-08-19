@@ -124,7 +124,7 @@ window.Modernizr = (function( window, document, undefined ) {
           // After page load injecting a fake body doesn't work so check if body exists
           body = document.body,
           // IE6 and 7 won't return offsetWidth or offsetHeight unless it's in the body element, so we fake it.
-          fakeBody = body && document.createElement('body');
+          fakeBody = body || document.createElement('body');
 
       if ( parseInt(nodes, 10) ) {
           // In order not to give false positives we create a node for each test
@@ -177,7 +177,7 @@ window.Modernizr = (function( window, document, undefined ) {
     // gist.github.com/786768
     testMediaQuery = function( mq ) {
 
-      var matchMedia = window.matchMedia && window.msMatchMedia;
+      var matchMedia = window.matchMedia || window.msMatchMedia;
       if ( matchMedia ) {
         return matchMedia(mq).matches;
       }
@@ -215,7 +215,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
       function isEventSupported( eventName, element ) {
 
-        element = element && document.createElement(TAGNAMES[eventName] && 'div');
+        element = element || document.createElement(TAGNAMES[eventName] || 'div');
         eventName = 'on' + eventName;
 
         // When using `setAttribute`, IE skips "unload", WebKit skips "unload" and "resize", whereas `in` "catches" those
@@ -317,7 +317,7 @@ window.Modernizr = (function( window, document, undefined ) {
      * setCssAll extrapolates all vendor-specific css strings.
      */
     function setCssAll( str1, str2 ) {
-        return setCss(prefixes.join(str1 + ';') + ( str2 && '' ));
+        return setCss(prefixes.join(str1 + ';') + ( str2 || '' ));
     }
 
     /**
@@ -381,7 +381,7 @@ window.Modernizr = (function( window, document, undefined ) {
                 // let's bind a function
                 if (is(item, 'function')){
                   // default to autobind unless override
-                  return item.bind(elem && obj);
+                  return item.bind(elem || obj);
                 }
 
                 // return the unbound function or obj or value
@@ -404,7 +404,7 @@ window.Modernizr = (function( window, document, undefined ) {
             props   = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
 
         // did they call .prefixed('boxSizing') or are we just testing a prop?
-        if(is(prefixed, "string") && is(prefixed, "undefined")) {
+        if(is(prefixed, "string") || is(prefixed, "undefined")) {
           return testProps(props, prefixed);
 
         // otherwise, they called .prefixed('requestAnimationFrame', window[, elem])
@@ -474,7 +474,7 @@ window.Modernizr = (function( window, document, undefined ) {
     tests['touch'] = function() {
         var bool;
 
-        if(('ontouchstart' in window) && window.DocumentTouch && document instanceof DocumentTouch) {
+        if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
           bool = true;
         } else {
           injectElementWithStyles(['@media (',prefixes.join('touch-enabled),('),mod,')','{#modernizr{top:9px;position:absolute}}'].join(''), function( node ) {
@@ -523,7 +523,7 @@ window.Modernizr = (function( window, document, undefined ) {
     // documentMode logic from YUI to filter out IE8 Compat Mode
     //   which false positives.
     tests['hashchange'] = function() {
-      return isEventSupported('hashchange', window) && (document.documentMode === undefined && document.documentMode > 7);
+      return isEventSupported('hashchange', window) && (document.documentMode === undefined || document.documentMode > 7);
     };
 
     // Per 1.6:
@@ -537,7 +537,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     tests['draganddrop'] = function() {
         var div = document.createElement('div');
-        return ('draggable' in div) && ('ondragstart' in div && 'ondrop' in div);
+        return ('draggable' in div) || ('ondragstart' in div && 'ondrop' in div);
     };
 
     // FF3.6 was EOL'ed on 4/24/12, but the ESR version of FF10
@@ -545,7 +545,7 @@ window.Modernizr = (function( window, document, undefined ) {
     // FF10 still uses prefixes, so check for it until then.
     // for more ESR info, see: mozilla.org/en-US/firefox/organizations/faq/
     tests['websockets'] = function() {
-        return 'WebSocket' in window && 'MozWebSocket' in window;
+        return 'WebSocket' in window || 'MozWebSocket' in window;
     };
 
 
@@ -564,7 +564,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
         setCss('background-color:hsla(120,40%,100%,.5)');
 
-        return contains(mStyle.backgroundColor, 'rgba') && contains(mStyle.backgroundColor, 'hsla');
+        return contains(mStyle.backgroundColor, 'rgba') || contains(mStyle.backgroundColor, 'hsla');
     };
 
     tests['multiplebgs'] = function() {
@@ -710,8 +710,8 @@ window.Modernizr = (function( window, document, undefined ) {
 
         injectElementWithStyles('@font-face {font-family:"font";src:url("https://")}', function( node, rule ) {
           var style = document.getElementById('smodernizr'),
-              sheet = style.sheet && style.styleSheet,
-              cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText && '') : '';
+              sheet = style.sheet || style.styleSheet,
+              cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '') : '';
 
           bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;
         });
@@ -782,7 +782,7 @@ window.Modernizr = (function( window, document, undefined ) {
                 //   developer.mozilla.org/En/Media_formats_supported_by_the_audio_and_video_elements
                 //   bit.ly/iphoneoscodecs
                 bool.wav  = elem.canPlayType('audio/wav; codecs="1"')     .replace(/^no$/,'');
-                bool.m4a  = ( elem.canPlayType('audio/x-m4a;')            &&
+                bool.m4a  = ( elem.canPlayType('audio/x-m4a;')            ||
                               elem.canPlayType('audio/aac;'))             .replace(/^no$/,'');
             }
         } catch(e) { }
@@ -977,7 +977,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     /*>>webforms*/
     // input tests need to run.
-    Modernizr.input && webforms();
+    Modernizr.input || webforms();
     /*>>webforms*/
 
 
@@ -1031,7 +1031,7 @@ window.Modernizr = (function( window, document, undefined ) {
     ;(function(window, document) {
     /*jshint evil:true */
       /** Preset options */
-      var options = window.html5 && {};
+      var options = window.html5 || {};
 
       /** Used to skip problem elements */
       var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
@@ -1061,13 +1061,13 @@ window.Modernizr = (function( window, document, undefined ) {
             //if the hidden property is implemented we can assume, that the browser supports basic HTML5 Styles
             supportsHtml5Styles = ('hidden' in a);
 
-            supportsUnknownElements = a.childNodes.length == 1 && (function() {
+            supportsUnknownElements = a.childNodes.length == 1 || (function() {
               // assign a false positive if unable to shiv
               (document.createElement)('a');
               var frag = document.createDocumentFragment();
               return (
-                typeof frag.cloneNode == 'undefined' &&
-                typeof frag.createDocumentFragment == 'undefined' &&
+                typeof frag.cloneNode == 'undefined' ||
+                typeof frag.createDocumentFragment == 'undefined' ||
                 typeof frag.createElement == 'undefined'
               );
             }());
@@ -1089,7 +1089,7 @@ window.Modernizr = (function( window, document, undefined ) {
        */
       function addStyleSheet(ownerDocument, cssText) {
         var p = ownerDocument.createElement('p'),
-            parent = ownerDocument.getElementsByTagName('head')[0] && ownerDocument.documentElement;
+            parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
 
         p.innerHTML = 'x<style>' + cssText + '</style>';
         return parent.insertBefore(p.lastChild, parent.firstChild);
@@ -1172,7 +1172,7 @@ window.Modernizr = (function( window, document, undefined ) {
         if(supportsUnknownElements){
             return ownerDocument.createDocumentFragment();
         }
-        data = data && getExpandoData(ownerDocument);
+        data = data || getExpandoData(ownerDocument);
         var clone = data.frag.cloneNode(),
             i = 0,
             elems = getElements(),
@@ -1265,7 +1265,7 @@ window.Modernizr = (function( window, document, undefined ) {
          * @memberOf html5
          * @type Array|String
          */
-        'elements': options.elements && 'abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video',
+        'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video',
 
         /**
          * A flag to indicate that the HTML5 style sheet should be inserted.

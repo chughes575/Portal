@@ -67,6 +67,15 @@ namespace linx_tablets.Hive {
         protected global::System.Web.UI.WebControls.DropDownList ddlStockStatusGV_FilterCustomerOrders;
         
         /// <summary>
+        /// ddlStockStatusGV_FilterCustomerAllocatedOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStockStatusGV_FilterCustomerAllocatedOrders;
+        
+        /// <summary>
         /// ddlStockStatusGV_FilterSafetyRating control.
         /// </summary>
         /// <remarks>

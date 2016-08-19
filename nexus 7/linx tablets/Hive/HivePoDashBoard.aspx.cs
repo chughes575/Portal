@@ -149,8 +149,6 @@ namespace linx_tablets.Hive
             {
 
                 String status = gvBundleSuggestions.Rows[i].Cells[3].Text;
-                String status3PL = gvBundleSuggestions.Rows[i].Cells[5].Text;
-                //String status = gvCustomerViewResults.Rows[i].Cells[0].Text;
                 const string greenHex = "#00cc66";
                 const string redHex = "#ff0000";
                 const string amberHex = "#ffcc00";
@@ -160,26 +158,13 @@ namespace linx_tablets.Hive
                 switch (status.ToLower())
                 {
                     case "green":
-                        gvBundleSuggestions.Rows[i].Cells[4].BackColor = green;
+                        gvBundleSuggestions.Rows[i].Cells[3].BackColor = green;
                         break;
                     case "red":
-                        gvBundleSuggestions.Rows[i].Cells[4].BackColor = red;
+                        gvBundleSuggestions.Rows[i].Cells[3].BackColor = red;
                         break;
                     case "amber":
-                        gvBundleSuggestions.Rows[i].Cells[4].BackColor = amber;
-                        break;
-
-                }
-                switch (status3PL.ToLower())
-                {
-                    case "green":
-                        gvBundleSuggestions.Rows[i].Cells[5].BackColor = green;
-                        break;
-                    case "red":
-                        gvBundleSuggestions.Rows[i].Cells[5].BackColor = red;
-                        break;
-                    case "amber":
-                        gvBundleSuggestions.Rows[i].Cells[5].BackColor = amber;
+                        gvBundleSuggestions.Rows[i].Cells[3].BackColor = amber;
                         break;
 
                 }
@@ -242,7 +227,22 @@ namespace linx_tablets.Hive
                         break;
                 }
             }
+            if (ddlStockStatusGV_FilterCustomerAllocatedOrders.SelectedIndex != 0)
+            {
+                switch (ddlStockStatusGV_FilterCustomerAllocatedOrders.SelectedValue)
+                {
 
+                    case "Allocated":
+                        baseQuery += " @allocatedorders=1,";
+                        break;
+                    case "No Allocated":
+                        baseQuery += " @allocatedorders=0,";
+                        break;
+                }
+            }
+
+
+            
 
             baseQuery = baseQuery.Substring(0, baseQuery.Length - 1);
             return baseQuery;

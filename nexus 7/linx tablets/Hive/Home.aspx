@@ -8,13 +8,9 @@
 
     <asp:SqlDataSource ID="sqlDSKewillProductStockStatusReport" runat="server" ConnectionString="<%$ ConnectionStrings:MSEConnectionString1 %>"
         SelectCommand="select * from vw_portal_hive_useruploadslastupdates order by lastfiledate desc"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="sqlDSBundleproducts" runat="server" ConnectionString="<%$ ConnectionStrings:MSEConnectionString1 %>"
-        SelectCommand="select bp.BundleID,bp.ProductCode,op.Product_Description from MSE_PortalHiveBundleProduct bp left outer join mse_oracleproducts op on op.product_code=bp.ProductCode
- order by Product_description"></asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="sqlDSOrderSummary" runat="server" ConnectionString="<%$ ConnectionStrings:MSEConnectionString1 %>"
-        SelectCommand="	select * from vw_bghome"></asp:SqlDataSource>
     
+
+
 
     <div class="container">
         <div class="row">
@@ -22,19 +18,20 @@
                 <div class="row">
                     <h1>Home</h1>
                     <h2>Orders Received Today</h2>
-                    <asp:GridView ID="gvOrdersSummary" CssClass="CSSTableGenerator" runat="server" DataSourceID="sqlDSOrderSummary" AutoGenerateColumns="false">
+                    <asp:GridView ID="gvOrdersSummary" CssClass="CSSTableGenerator" runat="server" AutoGenerateColumns="false">
                         <Columns>
-                            <asp:BoundField DataField="EmailID" HeaderText="Email ID" />
-                            <asp:BoundField DataField="Filename" HeaderText="Report Filename" />
-                            <asp:BoundField DataField="EmailDate" HeaderText="Order File Date" />
-                            <asp:BoundField DataField="DateImported" DataFormatString="{0:f}"  HeaderText="Date Imported" />
-                            <asp:BoundField DataField="OrderCount" HeaderText="Order Count" />
-
-
+                            <asp:BoundField DataField="EmailID"      HeaderText ="Email ID" />
+                            <asp:BoundField DataField="Filename"     HeaderText ="Report Filename" />
+                            <asp:BoundField DataField="DateImported" HeaderText ="Date Imported" DataFormatString="{0:f}" />
+                            <asp:BoundField DataField="OrderCount"   HeaderText ="Order Count" />
+                            <asp:BoundField DataField="Unit Count"   HeaderText ="Unit Count" />
+                            <asp:BoundField DataField="Orders Ack"   HeaderText ="Orders Ack" />
                         </Columns>
 
                     </asp:GridView>
-
+                    <br />
+                    <asp:Button runat="server" ID="btnDownloadRollingDocument" OnClick="btnDownloadRollingDocument_Click" Text="Download Rolling Order Report" />
+                    &nbsp;<asp:Button runat="server" ID="Button1" OnClick="btnDownloadRollingDocument_outstanding_Click" Text="Download Rolling Order Report (Outstanding)" />
                     <h2>Last Import/Upload updates</h2>
                     
                     <asp:GridView ID="gvKewillProductStockStatusLastUpdate" CssClass="CSSTableGenerator" runat="server" DataSourceID="sqlDSKewillProductStockStatusReport" AutoGenerateColumns="false" OnRowDataBound="gvLastImportedForecastPortal_RowDataBound">

@@ -9,3 +9,17 @@ C:\nexus 7\linx tablets\bin\Renci.SshNet.dll
 C:\nexus 7\linx tablets\bin\PortalCommon.dll
 C:\nexus 7\linx tablets\bin\Tamir.SharpSSH.dll
 C:\nexus 7\linx tablets\bin\PortalCommon.pdb
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\linx-tablets.dll.config
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\linx-tablets.dll
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\linx-tablets.pdb
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\PortalCommon.dll
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\Renci.SshNet.dll
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\EnvDTE80.dll
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\EnvDTE.dll
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\Tamir.SharpSSH.dll
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\stdole.dll
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\PortalCommon.pdb
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\obj\Release\linx-tablets.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\obj\Release\linx-tablets.dll
+C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\obj\Release\linx-tablets.pdb
