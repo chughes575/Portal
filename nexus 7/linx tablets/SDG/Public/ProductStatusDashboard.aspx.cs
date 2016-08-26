@@ -256,13 +256,13 @@ namespace linx_tablets.SDG.Public
         }
         protected void bindAccountManagerDDL()
         {
-            string buyerSQL = @"select distinct pm.ExertisAccountManager as AccountManager  from   MSE_KewillProductStockStatus ss
+            string buyerSQL = @"select distinct pm.sdgAccountManager as AccountManager  from   MSE_KewillProductStockStatus ss
 		inner join MSE_OracleCustomerSkuMapping sm on sm.customercode='MC005030' and sm.customer_item_number=ss.cat_no
 		inner join mse_oracleproducts op on op.itemid=sm.inventory_item_id
 		 LEFT OUTER JOIN
                          dbo.MSE_PortalAccountManagers AS pm ON pm.Business_area = op.Business_area AND pm.CustomerID = 1
 						 where pm.ExertisAccountManager is not null
-		order by pm.ExertisAccountManager";
+		order by pm.sdgAccountManager";
 
             ddlStockStatusGV_FilterAccountManager.DataTextField = "AccountManager";
             ddlStockStatusGV_FilterAccountManager.DataValueField = "AccountManager";

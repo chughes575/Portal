@@ -50,6 +50,16 @@
                                 <td>
                                     <asp:Button ID="btnDownloadExertisHiveEOLReport" runat="server" Text="Download" OnCommand="btnUkReplenFile_Command" CommandArgument="eol3" /></td>
                             </tr>
+                        <tr>
+                                <td>Goods Receipts Report (today)</td>
+                                <td>
+                                    <asp:Button ID="btnDownloadGoodsReceiptReport_today" runat="server" Text="Download" OnCommand="btnUkReplenFile_Command" CommandArgument="gr1" /></td>
+                            </tr>
+                        <tr>
+                                <td>Goods Receipts Report (historic)</td>
+                                <td>
+                                    <asp:Button ID="btnDownloadGoodsReceiptReport_historic" runat="server" Text="Download" OnCommand="btnUkReplenFile_Command" CommandArgument="gr2" /></td>
+                            </tr>
                     </table>
                 </div>
             </div>
