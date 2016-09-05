@@ -82,7 +82,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/07/2016 15:53:41</publishTime>
     </File>
     <File Include="bin/linx-tablets.dll">
+<<<<<<< HEAD
       <publishTime>09/02/2016 15:46:29</publishTime>
+=======
+      <publishTime>08/25/2016 16:01:26</publishTime>
+>>>>>>> origin/master
     </File>
     <File Include="bin/LinxCommon.dll">
       <publishTime>09/30/2015 08:30:19</publishTime>
@@ -115,10 +119,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/19/2016 08:37:44</publishTime>
     </File>
     <File Include="bin/PortalCommon.dll">
+<<<<<<< HEAD
       <publishTime>09/02/2016 10:51:50</publishTime>
+=======
+      <publishTime>08/23/2016 16:04:00</publishTime>
+>>>>>>> origin/master
     </File>
     <File Include="bin/Renci.SshNet.dll">
-      <publishTime>08/17/2016 10:12:15</publishTime>
+      <publishTime>08/19/2016 08:37:44</publishTime>
     </File>
     <File Include="bin/stdole.dll">
       <publishTime>08/19/2016 08:37:44</publishTime>
@@ -460,10 +468,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/19/2016 08:37:44</publishTime>
     </File>
     <File Include="Hive/HiveProductForecasting.aspx">
+<<<<<<< HEAD
       <publishTime>09/02/2016 11:32:15</publishTime>
     </File>
     <File Include="Hive/HiveProductStockHoldingRules.aspx">
       <publishTime>09/02/2016 12:47:07</publishTime>
+=======
+      <publishTime>08/19/2016 08:37:44</publishTime>
+    </File>
+    <File Include="Hive/HiveProductStockHoldingRules.aspx">
+      <publishTime>08/19/2016 08:37:44</publishTime>
+>>>>>>> origin/master
     </File>
     <File Include="Hive/HiveReporting.aspx">
       <publishTime>08/23/2016 16:02:57</publishTime>
@@ -793,10 +808,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/22/2016 09:14:54</publishTime>
     </File>
     <File Include="SDG/UserUploads.aspx">
+<<<<<<< HEAD
       <publishTime>09/02/2016 11:58:55</publishTime>
     </File>
     <File Include="SDG/VendorPO.aspx">
       <publishTime>09/01/2016 09:07:45</publishTime>
+=======
+      <publishTime>08/19/2016 08:37:44</publishTime>
+    </File>
+    <File Include="SDG/VendorPO.aspx">
+      <publishTime>08/19/2016 08:37:44</publishTime>
+>>>>>>> origin/master
     </File>
     <File Include="SDG/web.config">
       <publishTime>08/25/2016 08:53:39</publishTime>
@@ -835,10 +857,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/19/2016 08:37:44</publishTime>
     </File>
     <File Include="WarrantyPortal/web.config">
+<<<<<<< HEAD
       <publishTime>09/01/2016 15:21:11</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>09/02/2016 11:01:48</publishTime>
+=======
+      <publishTime>08/25/2016 08:54:54</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/24/2016 10:39:42</publishTime>
+>>>>>>> origin/master
     </File>
     <File Include="Web.sitemap">
       <publishTime>08/19/2016 08:37:44</publishTime>
