@@ -148,7 +148,7 @@ namespace linx_tablets.Hive
             for (int i = 0; i <= gvBundleSuggestions.Rows.Count - 1; i++)
             {
 
-                String status = gvBundleSuggestions.Rows[i].Cells[3].Text;
+                String status = gvBundleSuggestions.Rows[i].Cells[4].Text;
                 const string greenHex = "#00cc66";
                 const string redHex = "#ff0000";
                 const string amberHex = "#ffcc00";
@@ -158,13 +158,13 @@ namespace linx_tablets.Hive
                 switch (status.ToLower())
                 {
                     case "green":
-                        gvBundleSuggestions.Rows[i].Cells[3].BackColor = green;
+                        gvBundleSuggestions.Rows[i].Cells[4].BackColor = green;
                         break;
                     case "red":
-                        gvBundleSuggestions.Rows[i].Cells[3].BackColor = red;
+                        gvBundleSuggestions.Rows[i].Cells[4].BackColor = red;
                         break;
                     case "amber":
-                        gvBundleSuggestions.Rows[i].Cells[3].BackColor = amber;
+                        gvBundleSuggestions.Rows[i].Cells[4].BackColor = amber;
                         break;
 
                 }

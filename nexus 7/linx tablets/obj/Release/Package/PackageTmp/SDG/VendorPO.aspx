@@ -30,6 +30,26 @@ order by lastfiledate desc"></asp:SqlDataSource>
         <div class="row">
             <div class="col-lg-12 download-page">
                 <div class="row">
+                    <p style="font-size:16pt;color:red">No# Of Weeks Forecast used:</p>
+                        <asp:DropDownList ID="ddlForecastAmountUsed" runat="server">
+                            <asp:ListItem Value="1" Text="1"></asp:ListItem>
+                            <asp:ListItem Value="2" Text="2"></asp:ListItem>
+                            <asp:ListItem Value="3" Text="3"></asp:ListItem>
+                            <asp:ListItem Value="4" Text="4"></asp:ListItem>
+                            <asp:ListItem Value="5" Text="5"></asp:ListItem>
+                            <asp:ListItem Value="6" Text="6"></asp:ListItem>
+                            <asp:ListItem Value="7" Text="7"></asp:ListItem>
+                            <asp:ListItem Value="8" Text="8"></asp:ListItem>
+                            <asp:ListItem Value="9" Text="9"></asp:ListItem>
+                            <asp:ListItem Value="10" Text="10"></asp:ListItem>
+                            <asp:ListItem Value="11" Text="11"></asp:ListItem>
+                            <asp:ListItem Value="12" Text="12"></asp:ListItem>
+                            <asp:ListItem Value="13" Text="13"></asp:ListItem>
+                            <asp:ListItem Value="14" Text="14"></asp:ListItem>
+                            <asp:ListItem Value="15" Text="15"></asp:ListItem>
+
+                        </asp:DropDownList>
+                        <asp:Button ID="btnUpdateForecastWeeksUsed" runat="server" Text="Update" OnClick="btnUpdateForecastWeeksUsed_Click" />
                     <h2>Vendor PO Recommendations</h2>
                     <table class="CSSTableGenerator">
                         <tr>
@@ -61,26 +81,7 @@ order by lastfiledate desc"></asp:SqlDataSource>
                     
                         <h2>Vendor Lead Time Management</h2>
 
-                        No# Of Weeks Forecast used:
-                        <asp:DropDownList ID="ddlForecastAmountUsed" runat="server">
-                            <asp:ListItem Value="1" Text="1"></asp:ListItem>
-                            <asp:ListItem Value="2" Text="2"></asp:ListItem>
-                            <asp:ListItem Value="3" Text="3"></asp:ListItem>
-                            <asp:ListItem Value="4" Text="4"></asp:ListItem>
-                            <asp:ListItem Value="5" Text="5"></asp:ListItem>
-                            <asp:ListItem Value="6" Text="6"></asp:ListItem>
-                            <asp:ListItem Value="7" Text="7"></asp:ListItem>
-                            <asp:ListItem Value="8" Text="8"></asp:ListItem>
-                            <asp:ListItem Value="9" Text="9"></asp:ListItem>
-                            <asp:ListItem Value="10" Text="10"></asp:ListItem>
-                            <asp:ListItem Value="11" Text="11"></asp:ListItem>
-                            <asp:ListItem Value="12" Text="12"></asp:ListItem>
-                            <asp:ListItem Value="13" Text="13"></asp:ListItem>
-                            <asp:ListItem Value="14" Text="14"></asp:ListItem>
-                            <asp:ListItem Value="15" Text="15"></asp:ListItem>
-
-                        </asp:DropDownList>
-                        <asp:Button ID="btnUpdateForecastWeeksUsed" runat="server" Text="Update" OnClick="btnUpdateForecastWeeksUsed_Click" />
+                        
                         <h3>Supplier Lead times</h3>
                         <div style="border: 5px solid gray; padding: 5px; background: white; width: 80%; height: 300px; overflow-y: scroll;">
                             <asp:GridView ID="gvPOSupplierLeadTimes" DataKeyNames="ID" CssClass="CSSTableGenerator" runat="server" AutoGenerateColumns="false" OnRowEditing="gvPOSupplierLeadTimes_RowEditing" OnRowUpdating="ggvPOSupplierLeadTimes_RowUpdating" OnRowCancelingEdit="gvPOSupplierLeadTimes_RowCancelingEdit" AutoGenerateEditButton="true">

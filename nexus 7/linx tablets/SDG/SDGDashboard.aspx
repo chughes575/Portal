@@ -6,7 +6,11 @@
     </hgroup>
     <asp:SqlDataSource ID="sqlDSKewillProductStockStatusReport" runat="server" ConnectionString="<%$ ConnectionStrings:MSEConnectionString1 %>"
         SelectCommand="select *,datediff(hour,lastfiledate,getdate()) as dateDiffImport from mse_portalforecastreportmanagement 
-where customerid=1  and UserPopulated=0
+where customerid=1  and UserPopulated=0 and reportid not in (25,10)
+
+union
+select fcm.*,datediff(hour,lastfiledate,getdate()) as dateDiffImport from mse_portalforecastreportmanagement fcm left outer join PortalConfig pc on pc.configkey='StockLevelsMethod'
+where reportid = case when pc.ConfigValue='1' then 25 else 10 end
 order by lastfiledate desc"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlDSPortalAccountManagers" runat="server" ConnectionString="<%$ ConnectionStrings:MSEConnectionString1 %>"
         SelectCommand="	select * from MSE_PortalAccountManagers order by business_area"></asp:SqlDataSource>

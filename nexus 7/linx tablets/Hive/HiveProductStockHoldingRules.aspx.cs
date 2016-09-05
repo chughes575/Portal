@@ -38,6 +38,9 @@ namespace linx_tablets.Hive
                 
                 string leadTimeBundlesExertis3PL = Common.runSQLScalar("select configvalue from PortalConfig where ConfigKey='ForecastWeeksUsedBundles3pl' and CustomerID=5").ToString();
                 ddlForecastAmountUsedBundlesExertis3PL.SelectedIndex = ddlForecastAmountUsedBundlesExertis3PL.Items.IndexOf(ddlForecastAmountUsedBundlesExertis3PL.Items.FindByValue(leadTimeBundlesExertis3PL));
+
+                string selectSQL = "select configvalue from portalconfig where configkey='SellThruOverwrite'";
+                txtSellThroughPercentage.Text = Common.runSQLScalar(selectSQL).ToString();
             }
         }
         protected void btnUpdate3PLForecastWeeksUsed_Click(object sender, EventArgs e)
@@ -69,6 +72,14 @@ namespace linx_tablets.Hive
             Common.runSQLNonQuery("update PortalConfig set configvalue='" + leadTime + "' where ConfigKey='ForecastWeeksUsedBundles3pl' and CustomerID=5");
             Common.runSQLNonQuery(string.Format("update mse_portalforecastreportmanagement set lastfiledate=getdate(),Username='{0}' where reportid=30", HttpContext.Current.User.Identity.Name.ToString()));
             ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('Lead Time Update Successful');", true);
+        }
+
+        protected void btnUpdateSellThroughOverwrite_Click(object sender, EventArgs e)
+        {
+            
+            string updateSQL = string.Format("update portalconfig set configvalue={0} where configkey='SellThruOverwrite'", txtSellThroughPercentage.Text);
+            Common.runSQLNonQuery(updateSQL);
+            ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('Sell Through Overwrite Update Successful');", true);
         }
     }
 }

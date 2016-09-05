@@ -74,5 +74,23 @@ namespace linx_tablets.Hive {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDownloadExertisHiveEOLReport;
+        
+        /// <summary>
+        /// btnDownloadGoodsReceiptReport_today control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDownloadGoodsReceiptReport_today;
+        
+        /// <summary>
+        /// btnDownloadGoodsReceiptReport_historic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDownloadGoodsReceiptReport_historic;
     }
 }

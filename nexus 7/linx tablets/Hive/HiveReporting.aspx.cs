@@ -59,6 +59,17 @@ namespace linx_tablets.Hive
                 {
                     runReport("exec [sp_hivesohreportdownload]", "Hive_SOH_Report_" + Common.timestamp() + ".csv");
                 }
+                if (str1 == "gr1")
+                {
+                    runReport("exec [SP_portal_oraclegoodsreceiptsdownload] 1", "Goods_Receipts_Report_" + Common.timestamp() + ".csv");
+                }
+                if (str1 == "gr2")
+                {
+                    runReport("exec [SP_portal_oraclegoodsreceiptsdownload] 0", "Goods_Receipts_Report_" + Common.timestamp() + ".csv");
+                }
+
+
+
             
         }
         protected void DownloadFile(FileInfo file)

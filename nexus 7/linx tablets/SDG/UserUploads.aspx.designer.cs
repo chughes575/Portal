@@ -85,13 +85,22 @@ namespace linx_tablets.SDG {
         protected global::System.Web.UI.WebControls.Button btnDownloadForecast;
         
         /// <summary>
-        /// btnDownloadRangeTemplate control.
+        /// ddlHistoricSDGForecastYears control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDownloadRangeTemplate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHistoricSDGForecastYears;
+        
+        /// <summary>
+        /// btnDownloadSDGForecastHistoric control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDownloadSDGForecastHistoric;
         
         /// <summary>
         /// fupForecast control.

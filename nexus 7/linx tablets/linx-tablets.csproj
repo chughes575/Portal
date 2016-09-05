@@ -247,6 +247,7 @@
     <Content Include="Global.asax" />
     <Content Include="Hive\HiveBundleManagement.aspx" />
     <Content Include="Hive\HiveEOLManagement.aspx" />
+    <Content Include="Hive\HiveOrderwellManagement.aspx" />
     <Content Include="Hive\HiveProductForecasting.aspx" />
     <Content Include="Hive\ExertisRetailerEposManagement.aspx" />
     <Content Include="Hive\ExertisHivePODashboard.aspx" />
@@ -439,6 +440,13 @@
     </Compile>
     <Compile Include="Hive\HiveEOLManagement.aspx.designer.cs">
       <DependentUpon>HiveEOLManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hive\HiveOrderwellManagement.aspx.cs">
+      <DependentUpon>HiveOrderwellManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hive\HiveOrderwellManagement.aspx.designer.cs">
+      <DependentUpon>HiveOrderwellManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hive\HiveProductForecasting.aspx.cs">
       <DependentUpon>HiveProductForecasting.aspx</DependentUpon>

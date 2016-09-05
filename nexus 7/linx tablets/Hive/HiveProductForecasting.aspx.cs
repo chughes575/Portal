@@ -403,25 +403,25 @@ WITH (CODEPAGE = 1252, CHECK_CONSTRAINTS, FIELDTERMINATOR =',', ROWTERMINATOR ='
 
         protected void btnDownload3PLForecast_Click(object sender, EventArgs e)
         {
-            string filename = "Hive_3PLForecast_Existing_" + Common.timestamp() + ".csv";
+            string filename = "Hive_3PLForecast_Current_" + Common.timestamp() + ".csv";
             runReport("exec sp_forecastportalforecastdownload 5", filename);
         }
-        protected void btnDownload3plForecastTemplate_Click(object sender, EventArgs e)
-        {
-            string filename = "Hive_3PLForecast_Template_" + Common.timestamp() + ".csv";
-            runReport("exec sp_forecastportalforecastdownloadtemplate 5", filename);
-        }
+        //protected void btnDownload3plForecastTemplate_Click(object sender, EventArgs e)
+        //{
+        //    string filename = "Hive_3PLForecast_Template_" + Common.timestamp() + ".csv";
+        //    runReport("exec sp_forecastportalforecastdownloadtemplate 5", filename);
+        //}
 
         protected void btnDownloadexertishiveForecast_Click(object sender, EventArgs e)
         {
-            string filename = "ExertisHive_Forecast_Existing_" + Common.timestamp() + ".csv";
+            string filename = "ExertisHive_Forecast_Current_" + Common.timestamp() + ".csv";
             runReport("exec sp_forecastportalforecastdownload 6", filename);
         }
-        protected void btnDownloadexertishiveForecastTemplate_Click(object sender, EventArgs e)
-        {
-            string filename = "Exertishive_Forecast_Template_" + Common.timestamp() + ".csv";
-            runReport("exec sp_forecastportalforecastdownloadtemplate 6", filename);
-        }
+        //protected void btnDownloadexertishiveForecastTemplate_Click(object sender, EventArgs e)
+        //{
+        //    string filename = "Exertishive_Forecast_Template_" + Common.timestamp() + ".csv";
+        //    runReport("exec sp_forecastportalforecastdownloadtemplate 6", filename);
+        //}
 
         protected void btnDownload3PLForecastHistoric_Click(object sender, EventArgs e)
         {

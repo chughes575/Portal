@@ -64,21 +64,24 @@ where CustomerID=1 and UserPopulated=1 order by lastfiledate desc"></asp:SqlData
                     <br />
                     <br>
                     <ul>
-                        <li>The forecast can be input/uploaded for weeks 1-52 in the current calendar year for any given product. </li>
-                        <li>Upon uploading any existing forecast entries for a product will be replaced with the values supplied in the file. E.g if week 1 is uploaded with a empty/blank value any existing week 1 forecast value will be removed</li>
-                        <li>If you wish to completely remove a products forecast data (weeks 1-52) pupulate column B (Delete) with 'D'. </li>
+                        <li>Forecast can be uploaded for weeks 1-104 (1 being the current week).</li>
+                        <li>Portal will purge and replace all updated quantities for future weeks</li>
                     </ul>
 
                     <table class="CSSTableGenerator">
                         <tr>
                             <th>Download existing forecast</th>
-                            <th>Dowload blank template file</th>
+                            <th>Download historic forecast (By forecast year)</th>
                         </tr>
                         <tr>
                             <td>
                                 <asp:Button ID="btnDownloadForecast" runat="server" Text="Download" OnClick="btnDownloadForecast_Click" /></td>
                             <td>
-                                <asp:Button ID="btnDownloadRangeTemplate" runat="server" Text="Download" OnClick="btnDownloadForecastTemplate_Click" /></td>
+                                <asp:DropDownList ID="ddlHistoricSDGForecastYears" runat="server" DataTextField="ForecastYear" DataValueField="ForecastYear" />&nbsp
+                               
+                                <asp:Button ID="btnDownloadSDGForecastHistoric" runat="server" Text="Download" OnClick="btnDownloadSDGForecastHistoric_Click" />
+
+                            </td>
                         </tr>
                     </table>
                     <br />

@@ -148,10 +148,12 @@ namespace linx_tablets.Hive
                     catch (Exception ex)
                     {
                     }
+
                     string newFilename = @"\\10.16.72.129\company\FTP\root\MSESRVDOM\exertissdg\portalUploadedFiles\" + filename;
                     string bulkInsert = string.Format(@"BULK INSERT productdataloader_portal_hivecomponentleadtime_tempload FROM '{0}' 
 WITH (CODEPAGE = 1252, CHECK_CONSTRAINTS, FIELDTERMINATOR =',', ROWTERMINATOR ='0x0a', FIRSTROW = 2, FIRE_TRIGGERS  ) ", newFilename);
                     Common.runSQLNonQuery(bulkInsert);
+                    
                     if (int.Parse(Common.runSQLScalar("select count(*) from productdataloader_portal_hivecomponentleadtime_tempload").ToString()) == 0)
                         throw new Exception("Table empty");
 

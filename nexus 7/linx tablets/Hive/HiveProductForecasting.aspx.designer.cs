@@ -58,15 +58,6 @@ namespace linx_tablets.Hive {
         protected global::System.Web.UI.WebControls.Button btnDownload3PLForecastHistoric;
         
         /// <summary>
-        /// btnDownload3plForecastTemplate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDownload3plForecastTemplate;
-        
-        /// <summary>
         /// fup3PLForecast control.
         /// </summary>
         /// <remarks>
@@ -112,15 +103,6 @@ namespace linx_tablets.Hive {
         protected global::System.Web.UI.WebControls.Button btnDownloadExertishiveForecastHistoric;
         
         /// <summary>
-        /// btnDownloadexertishiveForecastTemplate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDownloadexertishiveForecastTemplate;
-        
-        /// <summary>
         /// fupExertisHiveForecast control.
         /// </summary>
         /// <remarks>
@@ -137,6 +119,15 @@ namespace linx_tablets.Hive {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUploadExertisHiveForecast;
+        
+        /// <summary>
+        /// pnlExceptions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlExceptions;
         
         /// <summary>
         /// gvForecastPercentages control.

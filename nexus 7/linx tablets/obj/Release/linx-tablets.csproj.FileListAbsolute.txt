@@ -23,3 +23,14 @@ C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\bin\Microsoft.Web.Infrastru
 C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\obj\Release\linx-tablets.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\obj\Release\linx-tablets.dll
 C:\Users\Chris\Documents\Portal\nexus 7\linx tablets\obj\Release\linx-tablets.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\bin\linx-tablets.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\bin\linx-tablets.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\bin\PortalCommon.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\bin\Renci.SshNet.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\bin\Tamir.SharpSSH.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\bin\PortalCommon.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\obj\Release\linx-tablets.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\obj\Release\linx-tablets.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\obj\Release\linx-tablets.pdb

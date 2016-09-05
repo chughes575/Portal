@@ -345,6 +345,7 @@
                                         <a class="list-group-item small" href="/Hive/HiveProductForecasting.aspx">Hive Product Forecasting</a>
                                         <a class="list-group-item small" href="/Hive/HiveProductStockHoldingRules.aspx">Hive Product Stock Holding Rules</a>
                                         <a class="list-group-item small" href="/Hive/LeadTimeManagement.aspx">Hive Component Lead Time Management</a>
+                                        <a class="list-group-item small" href="/Hive/HiveOrderwellManagement.aspx">Hive Orderwell Management</a>
                                         
                                         <a class="list-group-item small" href="/Hive/HivePoDashBoard.aspx">Hive POs and Availability Dashboard</a>
                                         <a class="list-group-item small" href="/Hive/HiveReporting.aspx">Hive Reporting</a>

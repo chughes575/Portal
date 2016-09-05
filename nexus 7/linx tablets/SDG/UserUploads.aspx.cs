@@ -28,8 +28,20 @@ namespace linx_tablets.SDG
                 string forecastWeek = Common.runSQLScalar("select datepart(week,getdate())").ToString();
                 lblCurrentForecastWeek.Text = forecastWeek;
             }
-        }
 
+            string historicForecastYearsExertisHiveSQL = @"select distinct a.forecastyear from (
+select distinct forecastyear from MSE_PortalForecastingData where forecastyear<=datepart(year,getdate()) and customerid in (1)
+union
+select 2016 as forecastyear
+) a ";
+            ddlHistoricSDGForecastYears.DataSource = Common.runSQLDataset(historicForecastYearsExertisHiveSQL);
+            ddlHistoricSDGForecastYears.DataBind();
+        }
+        protected void btnDownloadSDGForecastHistoric_Click(object sender, EventArgs e)
+        {
+            string filename = "SDG_Forecast_Historic_Year_" + ddlHistoricSDGForecastYears.SelectedValue + "_" + Common.timestamp() + ".csv";
+            runReport(string.Format("exec [sp_forecastportalforecasthistoricdownload] 1,{0}", ddlHistoricSDGForecastYears.SelectedValue), filename);
+        }
         private void runReport(string query, string filename)
         {
             this.Session["ReportQuery"] = (object)query;
@@ -155,16 +167,15 @@ group by catno having count(ProductLaunchDate)>1),0)").ToString()) > 0)
             string filename = "Forecast_Existing_" + Common.timestamp() + ".csv";
             runReport("exec sp_forecastportalforecastdownload 1", filename);
         }
-        protected void btnDownloadForecastTemplate_Click(object sender, EventArgs e)
-        {
-            string filename = "Forecast_Template_" + Common.timestamp() + ".csv";
-            runReport("exec sp_forecastportalforecastdownloadtemplate 1", filename);
-        }
+        
 
         protected void btnUploadForecast_Click(object sender, EventArgs e)
         {
+            string loadTableName = "portalforecastupload_2years_sdg_tempload";
             if (fupForecast.HasFile)
             {
+                Common.runSQLNonQuery("delete from " + loadTableName);
+                Common.runSQLNonQuery("delete from productdataloader_PortalForecastingData_SDG_tempload");
                 Common.runSQLNonQuery("delete from portalforecastupload_sdg_tempload");
                 string filename = Path.GetFileNameWithoutExtension(fupForecast.FileName) + "_" + Common.timestamp() + Path.GetExtension(fupForecast.FileName);
                 string filePathLocale = "C:\\Linx-tablets\\replen files\\";
@@ -189,16 +200,87 @@ group by catno having count(ProductLaunchDate)>1),0)").ToString()) > 0)
                     {
                     }
                     string newFilename = @"\\10.16.72.129\company\FTP\root\MSESRVDOM\exertissdg\portalUploadedFiles\" + filename;
-                    string bulkInsert = string.Format(@"BULK INSERT portalforecastupload_sdg_tempload FROM '{0}' 
+                    string bulkInsert = string.Format(@"BULK INSERT "+loadTableName+@" FROM '{0}' 
 WITH (CODEPAGE = 1252, CHECK_CONSTRAINTS, FIELDTERMINATOR =',', ROWTERMINATOR ='0x0a', FIRSTROW = 2, FIRE_TRIGGERS  ) ", newFilename);
                     Common.runSQLNonQuery(bulkInsert);
-                    if (int.Parse(Common.runSQLScalar("select count(*) from portalforecastupload_sdg_tempload").ToString()) == 0)
+                    if (int.Parse(Common.runSQLScalar("select count(*) from " + loadTableName ).ToString()) == 0)
                         throw new Exception("Table empty");
 
-                    if (int.Parse(Common.runSQLScalar("select count(*) from portalforecastupload_sdg_tempload where (catno is null)").ToString()) > 0)
+                    if (int.Parse(Common.runSQLScalar("select count(*) from " + loadTableName + @" where (catno is null)").ToString()) > 0)
                         throw new Exception("Ensure Catno (column a) is populated fort every line");
 
-                    string updateSQL = string.Format("exec sp_sdgforecastupload '{0}','{1}'", fupForecast.FileName, HttpContext.Current.User.Identity.Name.ToString());
+                    int weeksRemain = 0;
+                    int weekNo = int.Parse(Common.runSQLScalar("select datepart(week,getdate())").ToString());
+                    int curWeekNoCount = 0;
+                    string yearNo = Common.runSQLScalar("select datepart(year,getdate())").ToString();
+                    string yearNon = Common.runSQLScalar("select datepart(year,getdate())+1").ToString();
+                    string yearNon1 = Common.runSQLScalar("select datepart(year,getdate())+2").ToString();
+                    string valuesSQL = "";
+                    string valuesSQLN = "";
+                    string valuesSQLN1 = "";
+                    string nulls = "select catno," + yearNo.ToString() + ",";
+                    string nullsNext = "select catno," + yearNon.ToString() + ",";
+                    string nullsNext1 = "select catno," + yearNon1.ToString() + ",";
+                    for (int i1 = 1; i1 < weekNo; i1++)
+                    {
+                        nulls += "null,";
+                    }
+                    for (int i = 1; i <= 104; i++)
+                    {
+                        if (weekNo + i <= 53)
+                        {
+                            valuesSQL += "Forecastweek" + (i).ToString() + ",";
+                            curWeekNoCount++;
+                        }
+                        else
+                        {
+                            weeksRemain = 105 - i;
+                            break;
+                        }
+                    }
+                    for (int i1 = 0; i1 < 52; i1++)
+                    {
+                        valuesSQLN += "Forecastweek" + ((105 + i1) - weeksRemain).ToString() + ",";
+                        curWeekNoCount++;
+                    }
+                    int weeksRemainC = 104 - ((53 - weekNo) + 52);
+                    for (int i5 = 1; i5 <= weeksRemainC; i5++)
+                    {
+                        valuesSQLN1 += "Forecastweek" + (curWeekNoCount + i5).ToString() + ",";
+
+                    }
+
+                    for (int nullsC = 1; nullsC <= (52 - weeksRemainC); nullsC++)
+                    {
+                        valuesSQLN1 += "null,";
+                    }
+
+
+
+
+                    valuesSQL = valuesSQL.Substring(0, valuesSQL.Length - 1);
+                    valuesSQLN = valuesSQLN.Substring(0, valuesSQLN.Length - 1);
+                    valuesSQLN1 = valuesSQLN1.Substring(0, valuesSQLN1.Length - 1);
+
+                    nulls += valuesSQL;
+                    nullsNext += valuesSQLN;
+                    nullsNext1 += valuesSQLN1;
+
+                    nulls += " from " + loadTableName + " union ";
+                    nullsNext += " from " + loadTableName + " union ";
+                    nullsNext1 += " from " + loadTableName;
+                    string sqlInsert = "insert into productdataloader_PortalForecastingData_SDG_tempload ";
+                    sqlInsert += nulls;
+                    sqlInsert += nullsNext;
+                    sqlInsert += nullsNext1;
+
+
+                    Common.runSQLNonQuery(sqlInsert);
+
+
+
+                    string updateSQL = string.Format("exec sp_portalsdgforecastupload '{0}','{1}'", fupForecast.FileName, HttpContext.Current.User.Identity.Name.ToString());
+                    //string updateSQL = string.Format("exec sp_sdgforecastupload '{0}','{1}'", fupForecast.FileName, HttpContext.Current.User.Identity.Name.ToString());
                     Common.runSQLNonQuery(updateSQL);
                     ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('Upload successful, the forecast has been updated');", true);
                 }
@@ -259,8 +341,8 @@ WITH (CODEPAGE = 1252, CHECK_CONSTRAINTS, FIELDTERMINATOR =',', ROWTERMINATOR ='
                     if (int.Parse(Common.runSQLScalar("select  count(*) from productdataloader_PortalVendors_tempload where replace(vendorname,'\"','')+'-'+replace(Manufacturer,'\"','') not in (select vendorname+'-'+Manufacturer from MSE_PortalVendors)").ToString()) > 0)
                         throw new Exception("Unknown vendor found in file");
 
-                    if (int.Parse(Common.runSQLScalar("select coalesce((select count(*) from productdataloader_PortalVendors_tempload group by VendorName having count(ContactEmailAddress)>1),0)").ToString()) > 0)
-                        throw new Exception("Ensure VendorName only appears once in the uploaded file");
+                    if (int.Parse(Common.runSQLScalar("select coalesce((select count(*) from productdataloader_PortalVendors_tempload group by VendorName,manufacturer having count(ContactEmailAddress)>1),0)").ToString()) > 0)
+                        throw new Exception("Ensure VendorName and manufacturer only appears once in the uploaded file");
 
                     
                     

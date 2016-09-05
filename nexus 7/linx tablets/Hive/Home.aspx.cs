@@ -22,8 +22,7 @@ namespace linx_tablets.Hive
         {
 
 
-            gvOrdersSummary.DataSource = Common.runSQLDataset("exec [sp_bghome]");
-            gvOrdersSummary.DataBind();
+            
             if (!Page.IsPostBack)
             {
                 string stockLevelSetup = Common.runSQLScalar("select configvalue from PortalConfig where ConfigKey='StockLevelsMethod' and CustomerID=5").ToString();
@@ -118,17 +117,6 @@ namespace linx_tablets.Hive
             ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('Stock Level Setup Updated.');", true);
         }
 
-        protected void btnDownloadRollingDocument_Click(object sender, EventArgs e)
-        {
-
-            string filename = "BritishGas_Orders_Rolling_Report_" + Common.timestamp() + ".csv";
-            runReport("[sp_HiveBritishGasOrders]", filename);
-        }
-        protected void btnDownloadRollingDocument_outstanding_Click(object sender, EventArgs e)
-        {
-
-            string filename = "BritishGas_Orders_Rolling_Report_" + Common.timestamp() + ".csv";
-            runReport("[sp_HiveBritishGasOrders] 1", filename);
-        }
+       
     }
 }

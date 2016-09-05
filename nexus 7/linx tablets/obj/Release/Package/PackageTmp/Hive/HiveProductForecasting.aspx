@@ -15,12 +15,15 @@
                     <h1>Hive Product Forecasting</h1>
                     This page is used to input a forecast figure for a bundle. This can be done for Exertis or Hives forecast requirements and the forecast amount of weeks used can be independantly controlled.
 
-                <br />
+               
+
+                    <br />
                     Current Forecast Week:
+                   
                     <asp:Label ID="lblCurrentForecastWeek" runat="server" ForeColor="Green"></asp:Label>
                     <ul>
-                        <li>Forecasts can be input/uploaded for weeks 1-104 (Rolling 2 years) for any given bundle with week 1 being the current week. </li>
-                        <li>Upon uploading any existing forecast entries for a product will be replaced with the values supplied in the file. E.g if week 1 is uploaded with a empty/blank value any existing week 1 forecast value will be removed</li>
+                        <li>Forecast can be uploaded for weeks 1-104 (1 being the current week).</li>
+                        <li>Portal will purge and replace all updated quantities for future weeks</li>
 
                     </ul>
                     <h2>Hive 3PL Forecast Upload</h2>
@@ -31,20 +34,18 @@
 
                     <table class="CSSTableGenerator">
                         <tr>
-                            <th>Download existing forecast</th>
+                            <th>Download current forecast</th>
                             <th>Download historic forecast (By forecast year)</th>
-                            <th>Dowload blank template file</th>
                         </tr>
                         <tr>
                             <td>
                                 <asp:Button ID="btnDownload3PLForecast" runat="server" Text="Download" OnClick="btnDownload3PLForecast_Click" /></td>
                             <td>
                                 <asp:DropDownList ID="ddlHistoric3PLForecastYears" runat="server" DataTextField="ForecastYear" DataValueField="ForecastYear" />&nbsp
+                               
                                 <asp:Button ID="btnDownload3PLForecastHistoric" runat="server" Text="Download" OnClick="btnDownload3PLForecastHistoric_Click" />
 
                             </td>
-                            <td>
-                                <asp:Button ID="btnDownload3plForecastTemplate" runat="server" Text="Download" OnClick="btnDownload3plForecastTemplate_Click" /></td>
                         </tr>
                     </table>
                     <br />
@@ -59,26 +60,27 @@
 
                     <table class="CSSTableGenerator">
                         <tr>
-                            <th>Download existing forecast</th>
+                            <th>Download current forecast</th>
                             <th>Download historic forecast (By forecast year)</th>
-                            <th>Dowload blank template file</th>
                         </tr>
                         <tr>
                             <td>
                                 <asp:Button ID="btnDownloadexertishiveForecast" runat="server" Text="Download" OnClick="btnDownloadexertishiveForecast_Click" /></td>
                             <td>
                                 <asp:DropDownList ID="ddlHistoricExertisHiveForecastYears" runat="server" DataTextField="ForecastYear" DataValueField="ForecastYear" />&nbsp
+                               
                                 <asp:Button ID="btnDownloadExertishiveForecastHistoric" runat="server" Text="Download" OnClick="btnDownloadExertishiveForecastHistoric_Click" />
                             </td>
-                            <td>
-                                <asp:Button ID="btnDownloadexertishiveForecastTemplate" runat="server" Text="Download" OnClick="btnDownloadexertishiveForecastTemplate_Click" /></td>
+                            
                         </tr>
                     </table>
                     <br />
                     <asp:FileUpload ID="fupExertisHiveForecast" runat="server" /><br />
                     <asp:Button ID="btnUploadExertisHiveForecast" runat="server" Text="Upload" OnClick="btnUploadExertisHiveForecast_Click" />
+                    <asp:Panel id="pnlExceptions" runat="server" visible="false">
                     <h2>Forecast Exceptions</h2>
                     This sections allows you to modify how a products forecast can be modified. Example for a product you could enter 50% and the system would only use 50% of the actual inputted forecast when suggesting products.
+                   
                     <asp:GridView
                         ID="gvForecastPercentages"
                         runat="server"
@@ -114,7 +116,8 @@
                             <asp:TemplateField ShowHeader="False">
                                 <EditItemTemplate>
                                     <asp:Button ID="Button1" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />&nbsp;
-                     <asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                    
+                                    <asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
 
                                 </EditItemTemplate>
                                 <FooterTemplate>
@@ -137,9 +140,11 @@
                             <br />
                             </em>Add Entry:<em>&nbsp;<br />
                             </em>Product Code:
+                           
                             <asp:TextBox ID="txtNoDataProductCode" runat="server" Height="58px" TextMode="SingleLine"
                                 Width="150px"></asp:TextBox>
                             </em>Forecast Percentage:
+                           
                             <asp:TextBox ID="txtNoDataForecast" runat="server" Height="58px" TextMode="SingleLine"
                                 Width="150px"></asp:TextBox>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtNoDataForecast" ValidationExpression="^(100\.00|100\.0|100)|([0-9]{1,2}){0,1}(\.[0-9]{1,2}){0,1}$" runat="server" ErrorMessage="Please enter a numeric value"></asp:RegularExpressionValidator>
@@ -170,6 +175,7 @@
                             <asp:Parameter Name="forecastamount" Type="Int32" />
                         </InsertParameters>
                     </asp:SqlDataSource>
+                    </asp:Panel>
                 </div>
             </div>
         </div>
