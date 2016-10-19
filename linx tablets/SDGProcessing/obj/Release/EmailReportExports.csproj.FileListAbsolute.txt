@@ -1,0 +1,6 @@
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Release\SDGProcessing.exe.config
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\obj\Release\SDGProcessing.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\obj\Release\SDGProcessing.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Release\SDGProcessing.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Release\SDGProcessing.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\obj\Release\EmailReportExports.csprojResolveAssemblyReference.cache

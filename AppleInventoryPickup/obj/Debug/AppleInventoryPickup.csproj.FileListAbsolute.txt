@@ -1,0 +1,7 @@
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\obj\Debug\AppleInventoryPickup.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\bin\Debug\AppleInventoryPickup.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\bin\Debug\AppleInventoryPickup.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\bin\Debug\MSE_Common.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\obj\Debug\AppleInventoryPickup.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\obj\Debug\AppleInventoryPickup.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\bin\Debug\AppleInventoryPickup.exe.config

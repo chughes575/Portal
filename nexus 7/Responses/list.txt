@@ -1,5 +1,0 @@
-list.txt
-MP_MSE_Order_Response_Out_014.31889
-MP_MSE_Order_Response_Out_022.17244
-MP_MSE_Order_Response_Out_212.27900
-MP_MSE_Order_Response_Out_628.16849
