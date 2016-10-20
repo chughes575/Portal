@@ -12,3 +12,17 @@ C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\StockSalesPickup\bi
 C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\StockSalesPickup\obj\Debug\StockSalesPickup.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\StockSalesPickup\obj\Debug\StockSalesPickup.exe
 C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\StockSalesPickup\obj\Debug\StockSalesPickup.pdb
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\StockSalesPickup.exe.config
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\StockSalesPickup.exe
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\StockSalesPickup.pdb
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\ActiveUp.Net.Common.dll
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\ActiveUp.Net.Imap4.dll
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\ActiveUp.Net.Mail.dll
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\NPOI.dll
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\NPOI.OOXML.dll
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Portal Repo\Portal\StockSalesPickup\bin\Debug\Tamir.SharpSSH.dll
+C:\Portal Repo\Portal\StockSalesPickup\obj\Debug\StockSalesPickup.csprojResolveAssemblyReference.cache
+C:\Portal Repo\Portal\StockSalesPickup\obj\Debug\StockSalesPickup.exe
+C:\Portal Repo\Portal\StockSalesPickup\obj\Debug\StockSalesPickup.pdb

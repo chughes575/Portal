@@ -9,3 +9,14 @@ C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\
 C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\obj\Debug\OracleStockAPIRetrieve.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\obj\Debug\AppleStockRetreive.exe
 C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\obj\Debug\AppleStockRetreive.pdb
+C:\Portal Repo\Portal\AppleStockRetreive\bin\Debug\AppleStockRetreive.exe.config
+C:\Portal Repo\Portal\AppleStockRetreive\bin\Debug\AppleStockRetreive.exe
+C:\Portal Repo\Portal\AppleStockRetreive\bin\Debug\AppleStockRetreive.pdb
+C:\Portal Repo\Portal\AppleStockRetreive\bin\Debug\Newtonsoft.Json.dll
+C:\Portal Repo\Portal\AppleStockRetreive\bin\Debug\RestSharp.dll
+C:\Portal Repo\Portal\AppleStockRetreive\bin\Debug\Tamir.SharpSSH.dll
+C:\Portal Repo\Portal\AppleStockRetreive\bin\Debug\Newtonsoft.Json.xml
+C:\Portal Repo\Portal\AppleStockRetreive\bin\Debug\RestSharp.xml
+C:\Portal Repo\Portal\AppleStockRetreive\obj\Debug\OracleStockAPIRetrieve.csprojResolveAssemblyReference.cache
+C:\Portal Repo\Portal\AppleStockRetreive\obj\Debug\AppleStockRetreive.exe
+C:\Portal Repo\Portal\AppleStockRetreive\obj\Debug\AppleStockRetreive.pdb

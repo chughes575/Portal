@@ -8,3 +8,13 @@ C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPicku
 C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\obj\Release\AppleInventoryPickup.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\obj\Release\AppleInventoryPickup.exe
 C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleInventoryPickup\obj\Release\AppleInventoryPickup.pdb
+C:\Portal Repo\Portal\AppleInventoryPickup\bin\Release\AppleInventoryPickup.exe.config
+C:\Portal Repo\Portal\AppleInventoryPickup\bin\Release\AppleInventoryPickup.exe
+C:\Portal Repo\Portal\AppleInventoryPickup\bin\Release\AppleInventoryPickup.pdb
+C:\Portal Repo\Portal\AppleInventoryPickup\bin\Release\ActiveUp.Net.Common.dll
+C:\Portal Repo\Portal\AppleInventoryPickup\bin\Release\ActiveUp.Net.Imap4.dll
+C:\Portal Repo\Portal\AppleInventoryPickup\bin\Release\ActiveUp.Net.Mail.dll
+C:\Portal Repo\Portal\AppleInventoryPickup\bin\Release\MSE_Common.dll
+C:\Portal Repo\Portal\AppleInventoryPickup\obj\Release\AppleInventoryPickup.csprojResolveAssemblyReference.cache
+C:\Portal Repo\Portal\AppleInventoryPickup\obj\Release\AppleInventoryPickup.exe
+C:\Portal Repo\Portal\AppleInventoryPickup\obj\Release\AppleInventoryPickup.pdb

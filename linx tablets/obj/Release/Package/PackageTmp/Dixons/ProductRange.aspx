@@ -58,7 +58,29 @@
                     <br />
                     <asp:FileUpload ID="fupBusinessArea" runat="server" /><br />
                     <asp:Button ID="btnUploadBusinessAreaMapping" runat="server" Text="Upload" OnClick="btnUploadBusinessAreaMapping_Click" />
-                </div>
+               
+                    
+                    
+                    <h2>Vendor Sku Mapping</h2>
+                    This section is used to map a Vendor/Manufacturer to a DSG sku that we do not have in the range.<br />
+                    Download existing will pull existing mappings as well as customer sku's which feature in the weekly sales/stock email which are unmapped<br />
+
+                    Upload is PURGE AND REPLACE! Use with caution
+                <br />
+                    <table class="CSSTableGenerator">
+                        <tr>
+                            <th>Download existing vendorsku mapping</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Button ID="btnDownloadVendorSkuMapping" runat="server" Text="Download" OnClick="btnDownloadVendorSkuMapping_Click" /></td>
+                                                       
+                        </tr>
+                    </table>
+                    <br />
+                    <asp:FileUpload ID="fuVendorSku" runat="server" /><br />
+                    <asp:Button ID="btnUploadVendorSkuMapping" runat="server" Text="Upload" OnClick="btnUploadVendorSkuMapping_Click" />
+                     </div>
             </div>
         </div>
     </div>

@@ -254,6 +254,7 @@
     <Content Include="Dixons\ProductForecasting.aspx" />
     <Content Include="Dixons\ProductRange.aspx" />
     <Content Include="Dixons\Reporting.aspx" />
+    <Content Include="Dixons\StockSalesUpload.aspx" />
     <Content Include="Dixons\VendorPO.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="favicon.ico" />
@@ -306,6 +307,7 @@
     <Content Include="Johnlewis\ProductForecasting.aspx" />
     <Content Include="Johnlewis\ProductRange.aspx" />
     <Content Include="Johnlewis\Reporting.aspx" />
+    <Content Include="Johnlewis\StockSalesUpload.aspx" />
     <Content Include="Johnlewis\VendorPO.aspx" />
     <Content Include="packages.config" />
     <Content Include="replen files\tables.css" />
@@ -570,6 +572,13 @@
     <Compile Include="Dixons\Reporting.aspx.designer.cs">
       <DependentUpon>Reporting.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dixons\StockSalesUpload.aspx.cs">
+      <DependentUpon>StockSalesUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dixons\StockSalesUpload.aspx.designer.cs">
+      <DependentUpon>StockSalesUpload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dixons\VendorPO.aspx.cs">
       <DependentUpon>VendorPO.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -751,6 +760,13 @@
     </Compile>
     <Compile Include="Johnlewis\Reporting.aspx.designer.cs">
       <DependentUpon>Reporting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Johnlewis\StockSalesUpload.aspx.cs">
+      <DependentUpon>StockSalesUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Johnlewis\StockSalesUpload.aspx.designer.cs">
+      <DependentUpon>StockSalesUpload.aspx</DependentUpon>
     </Compile>
     <Compile Include="Johnlewis\VendorPO.aspx.cs">
       <DependentUpon>VendorPO.aspx</DependentUpon>

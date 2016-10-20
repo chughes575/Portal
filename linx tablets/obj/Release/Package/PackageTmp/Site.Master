@@ -450,8 +450,7 @@
                                         <a class="list-group-item small" href="/Dixons/Dashboard.aspx">Availability Dashboard</a>
                                         <a class="list-group-item small" href="/Dixons/ProductForecasting.aspx">Product Forecasting</a>
                                         <a class="list-group-item small" href="/Dixons/ProductRange.aspx">Product Range</a>
-                                        <a class="list-group-item small" href="/Dixons/ExertisRetailerInventoryManagement.aspx">Exertis Inventory Management</a>
-                                        <a class="list-group-item small" href="/Dixons/ExertisRetailerEposManagement.aspx">Exertis Epos Management</a>
+                                        <a class="list-group-item small" href="/Dixons/StockSalesUpload.aspx">Stock/Sales Upload</a>
                                         <a class="list-group-item small" href="/Dixons/Vendorpo.aspx">Vendor PO Recommendations</a>
                                         
                                         
@@ -466,8 +465,7 @@
                                         <a class="list-group-item small" href="/JohnLewis/Dashboard.aspx">Availability Dashboard</a>
                                         <a class="list-group-item small" href="/JohnLewis/ProductForecasting.aspx">Product Forecasting</a>
                                         <a class="list-group-item small" href="/JohnLewis/ProductRange.aspx">Product Range</a>
-                                        <a class="list-group-item small" href="/JohnLewis/ExertisRetailerInventoryManagement.aspx">Exertis Inventory Management</a>
-                                        <a class="list-group-item small" href="/JohnLewis/ExertisRetailerEposManagement.aspx">Exertis Epos Management</a>
+                                        <a class="list-group-item small" href="/JohnLewis/StockSalesUpload.aspx">Stock/Sales Upload</a>
                                         <a class="list-group-item small" href="/JohnLewis/Vendorpo.aspx">Vendor PO Recommendations</a>
                                         <a class="list-group-item small" href="/JohnLewis/Emailreporting.aspx">Stock/Sales email management</a>
                                         

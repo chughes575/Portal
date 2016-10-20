@@ -25,7 +25,32 @@ namespace EmailReportExports
                 case "3":
                     processJLPVendorEmails();
                     break;
+                    case "4":
+                    emailTest();
+                    break;
             }
+        }
+        public static void emailTest()
+        {
+            MailMessage mail = new MailMessage();
+                    
+                    SmtpClient SmtpServer = new SmtpClient("exertissap-co-uk01i.mail.protection.outlook.com");
+                    
+                    mail.From = new System.Net.Mail.MailAddress("noreply@exertis-sap.co.uk");
+                    mail.To.Add("chris.hughes@exertis.co.uk");
+                    
+                    mail.Body = "test";
+                    SmtpServer.Port = 25;
+                    try
+                    {
+
+                        SmtpServer.Send(mail);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Common.log("Error: " + ex.Message);
+                    }                    
         }
         public static void processJLPVendorEmails()
         {
@@ -76,7 +101,10 @@ where jlp.reportid=" + reportID + @" and processed=0", reportID));
                     List<string> fileList = new List<string>(); string filePath = @"\\10.16.72.129\company\FTP\root\MSESRVDOM\sdg\In\Temp files\";
                     string fileName = "Vendor_Sales" + "_" + dr[2].ToString().Replace(":", "") + "_" + dr[3].ToString().Replace(":", "") + "_" + Common.timestamp() + ".csv";
                     DataSet ds = Common.runSQLDataset(string.Format("exec [sp_JLPVendorPOEmail] {0}", dr[0].ToString()));
-
+                    if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count == 1)
+                    {
+                        bool ah = true;
+                    }
                     string vendorPoLinesContent = Common.dataTableToTextFile(ds.Tables[0], ",", "\r\n", true);
 
                     vendorPoLinesContent = vendorPoLinesContent.Replace("Week 1 Sell Thru", Common.runSQLScalar("select CONVERT(varchar, cast(dateadd(day,(0*7)*-1, dateadd(day, (datepart(weekday,getdate())+1)*-1,getdate()))  AS date), 103)").ToString());
@@ -187,9 +215,10 @@ where jlp.reportid=" + reportID + @" and processed=0", reportID));
                     MailMessage mail = new MailMessage();
                     mail.Subject = string.Format("{0}/{1} : JLP - Stock & Sales", vendorName, manufacturerName);
                     SmtpClient SmtpServer = new SmtpClient("smtp.office365.com");
+                    
                     mail.From = new System.Net.Mail.MailAddress(Common.runSQLScalar("select configvalue from portalconfig where configkey='EmailUsername' and customerid=6").ToString());
                     mail.CC.Add("chris.hughes@exertismse.co.uk");
-                    mail.CC.Add("alina.gavenyte@exertismse.co.uk");
+                    //mail.CC.Add("alina.gavenyte@exertismse.co.uk");
                     mail.CC.Add("alina.gavenyte@exertis.co.uk");
                     
                     mail.To.Add("sam.williams@exertis.co.uk");
@@ -258,45 +287,48 @@ where jlp.reportid=" + reportID + @" and processed=0", reportID));
         {
 
 
-
+            int customerID = 2;
             Common.log("Processing DSG Vendor  Emails");
-            int outstandingCount = int.Parse(Common.runSQLScalar(@"select count(*) from MSE_DSGVendorEmails where datepart(week,getdate())=WeekNo").ToString());
+            int outstandingCount = int.Parse(Common.runSQLScalar(@"select count(*) from MSE_PortalVendorEmails where datepart(week,getdate())=WeekNo and customerid=" + customerID).ToString());
 
             string reportname = "";
             string reportID = "";
             if (outstandingCount == 0)
             {
                 reportID = Common.runSQLScalar(string.Format(@"declare @IDNL table (ID int)
-						insert into MSE_DSGVendorEmails
-						output inserted.ID into @IDNL values (datepart(week,getdate()))
+						insert into MSE_PortalVendorEmails
+						output inserted.ID into @IDNL values (" + customerID + @",datepart(week,getdate()),datepart(year,getdate()))
 
 						select ID from @IDNL")).ToString();
 
-                Common.runSQLNonQuery(@"insert into MSE_DSGVendorProcessed
-select distinct pv.vendorid," + reportID + @",0 from mse_portalproductrange pr 
+                
+            }
+            else
+            {
+                reportID = Common.runSQLScalar(string.Format(@"select id from MSE_PortalVendorEmails where weekno=datepart(week,getdate()) and customerid="+customerID)).ToString();
+            }
+            Common.runSQLNonQuery(@"insert into MSE_PortalVendorProcessed 
+                select distinct vendorid," + reportID + @",0 from (
+select distinct pv.vendorid
+from mse_portalproductrange pr 
 inner join mse_portalcustomers pc on pc.customerid=2
 left outer join MSE_OracleCustomerSkuMapping sku on sku.CUSTOMER_ITEM_NUMBER=pr.customersku and sku.Customercode=pc.customercode
 left outer join mse_oracleproducts op on op.itemid=sku.INVENTORY_ITEM_ID and op.InvOrgID=88
 left outer join MSE_PortalVendors pv on pv.VendorName=op.Supplier and pv.Manufacturer=op.Manufacturer and pv.customerid=pc.customerid
-where pr.active=1 and pr.Customersku<>'tbc'  and pv.vendorid is not null");
-            }
-            else
-            {
-                reportID = Common.runSQLScalar(string.Format(@"select id from mse_DSGvendoremails where weekno=datepart(week,getdate())")).ToString();
-            }
-
-            int outstandingReportCount = int.Parse(Common.runSQLScalar("select count(*) from MSE_DSGVendorProcessed where processed=0 and reportid=" + reportID).ToString());
+where pr.Customersku<>'tbc'  and pv.vendorid is not null
+and pv.vendorid not in (select pv.vendorid from MSE_PortalVendorProcessed pv WHERE REPORTID=" + reportID + @")
+union
+select distinct pv.vendorid from mse_Portaldsgvendorskumappings_tempload tl inner join mse_portalvendors pv on pv.customerid=2
+and pv.vendorname=tl.vendorname and pv.manufacturer=tl.manufacturer 
+WHERE pv.vendorid not in (select pv.vendorid from MSE_PortalVendorProcessed pv WHERE REPORTID=" + reportID + @")) a");
+            int outstandingReportCount = int.Parse(Common.runSQLScalar("select count(*) from MSE_PortalVendorProcessed where processed=0 and reportid=" + reportID).ToString());
 
             if (outstandingReportCount > 0)
             {
 
-                DataRowCollection drC = Common.runSQLRows(string.Format(@"select distinct pv.* from mse_portalproductrange pr 
-inner join mse_portalcustomers pc on pc.customerid=2
-left outer join MSE_OracleCustomerSkuMapping sku on sku.CUSTOMER_ITEM_NUMBER=pr.CustomerSku and sku.Customercode=pc.customercode
-left outer join mse_oracleproducts op on op.itemid=sku.INVENTORY_ITEM_ID and op.InvOrgID=88
-left outer join MSE_PortalVendors pv on pv.VendorName=op.Supplier and pv.Manufacturer=op.Manufacturer and pv.customerid=pc.customerid
-left outer join MSE_DSGVendorProcessed vp on vp.vendorid=pv.vendorid
-where pr.Active=1 and pr.CustomerSku<>'tbc' and vp.processed=0  and pv.vendorid is not null and vp.reportid={0}", reportID));
+                DataRowCollection drC = Common.runSQLRows(string.Format(@"  select distinct pv.* from MSE_PortalVendors pv
+inner join MSE_PortalVendorProcessed vp on vp.vendorid=pv.vendorid
+where vp.processed=0  and pv.vendorid is not null and vp.reportid={0}", reportID));
 
                 foreach (DataRow dr in drC)
                 {
@@ -304,6 +336,11 @@ where pr.Active=1 and pr.CustomerSku<>'tbc' and vp.processed=0  and pv.vendorid 
                     List<string> fileList = new List<string>(); string filePath = @"\\10.16.72.129\company\FTP\root\MSESRVDOM\sdg\In\Temp files\";
                     string fileName = "Vendor_Sales" + "_" + dr[2].ToString() + "_" + dr[3].ToString() + "_" + Common.timestamp() + ".csv";
                     DataSet ds = Common.runSQLDataset(string.Format("exec [sp_DSGVendorPOEmail] {0}", dr[0].ToString()));
+                    if (ds.Tables[0].Rows.Count == 0)
+                    {
+                        bool asd = true;
+                        continue;
+                    }
 
                     string vendorPoLinesContent = Common.dataTableToTextFile(ds.Tables[0], ",", "\r\n", true);
 
@@ -411,12 +448,13 @@ where pr.Active=1 and pr.CustomerSku<>'tbc' and vp.processed=0  and pv.vendorid 
                     MailMessage mail = new MailMessage();
                     mail.Subject = string.Format("{0}/{1} : DSG - Stock & Sales", vendorName, manufacturerName);
                     SmtpClient SmtpServer = new SmtpClient("smtp.office365.com");
-                    mail.From = new System.Net.Mail.MailAddress(Common.runSQLScalar("select configvalue from portalconfig where configkey='EmailUsername' and customerid=2").ToString());
-                    mail.Bcc.Add("chris.hughes@exertis.co.uk");
-                    mail.Bcc.Add("alina.gavenyte@exertismse.co.uk");
-                    //mail.To.Add("sdgsupplychain@exertis.co.uk")
+                    mail.From = new System.Net.Mail.MailAddress(Common.runSQLScalar("select configvalue from portalconfig where configkey='EmailUsername' and customerid=6").ToString());
+                    mail.CC.Add("chris.hughes@exertis.co.uk");
+                    mail.CC.Add("alina.gavenyte@exertis.co.uk");
+                    mail.To.Add("sam.williams@exertis.co.uk");
+                    mail.To.Add("steve.baldwin@exertis.co.uk");
                     ;
-                    bool testing = false;
+                    bool testing = true;
                     if (emailValidation)
                     {
                         if (!testing)
@@ -431,7 +469,7 @@ where pr.Active=1 and pr.CustomerSku<>'tbc' and vp.processed=0  and pv.vendorid 
                     {
                         mail.Subject += string.Format(" Missing Vendor/Manuf Email To Forward", vendorName, manufacturerName);
                     }
-                    string defaultEmailAddress = "dsgsupplychain@exertis.co.uk";
+                    string defaultEmailAddress = "sam.williams@exertis.co.uk";
                     if (!emailExertisValidation)
                     {
                         formattedExertisContactEmails = defaultEmailAddress;
@@ -455,9 +493,9 @@ where pr.Active=1 and pr.CustomerSku<>'tbc' and vp.processed=0  and pv.vendorid 
                         }
                     }
                     SmtpServer.Port = 587;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential(Common.runSQLScalar("select configvalue from portalconfig where configkey='EmailUsername' and customerid=2").ToString(), Common.runSQLScalar("select configvalue from portalconfig where configkey='EmailPassword' and customerid=2").ToString());
+                    SmtpServer.Credentials = new System.Net.NetworkCredential(Common.runSQLScalar("select configvalue from portalconfig where configkey='EmailUsername' and customerid=6").ToString(), Common.runSQLScalar("select configvalue from portalconfig where configkey='EmailPassword' and customerid=6").ToString());
                     SmtpServer.EnableSsl = true;
-                    string updateSQL = string.Format(@"update MSE_DSGVendorProcessed set Processed=1 where vendorid={0} and reportid={1}", vendorID, reportID);
+                    string updateSQL = string.Format(@"update MSE_PortalVendorProcessed set Processed=1 where vendorid={0} and reportid={1}", vendorID, reportID);
                     try
                     {
 

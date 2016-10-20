@@ -205,5 +205,82 @@ group by catno having count(Mfr_Part_no)>1),0)").ToString()) > 0)
                 }
             }
         }
+        protected void btnUploadVendorSkuMapping_Click(object sender, EventArgs e)
+        {
+            string tempLoadTable = "productdataloader_Portaldsgvendorskumappings_tempload";
+            if (fuVendorSku.HasFile)
+            {
+                Common.runSQLNonQuery("delete from " + tempLoadTable);
+                string filename = Path.GetFileNameWithoutExtension(fuVendorSku.FileName) + "_" + Common.timestamp() + Path.GetExtension(fuVendorSku.FileName);
+                string filePathLocale = "C:\\Linx-tablets\\replen files\\";
+                //do some shit here
+                try
+                {
+                    try
+                    {
+                        fuVendorSku.SaveAs(filePathLocale + filename);
+
+                    }
+                    catch
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('File save failure');", true);
+                    }
+                    string reportData = File.ReadAllText(filePathLocale + filename, Encoding.Default);
+                    bool bypass = false;
+                    //    if (!bypass)
+                    //    {
+                    //        reportData = Regex.Replace(reportData,
+                    //@",(?=[^""]*""(?:[^""]*""[^""]*"")*[^""]*$)",
+                    //String.Empty);
+                    //    }
+
+                    var parts = reportData.Split('"');
+
+                    for (var i = 1; i < parts.Length; i += 2)
+                    {
+                        parts[i] = parts[i].Replace(",", "");
+                    }
+
+                    reportData = string.Join("\"", parts);
+                    string amendedFileName = "Amended" + filename;
+
+                    File.AppendAllText(filePathLocale + amendedFileName, reportData, Encoding.Default);
+
+                    IFTP ftpClient = new FTP("ftp.msent.co.uk", "/portalUploadedFiles/", "exertissdg", "Exertissdg1");
+                    try
+                    {
+                        ftpClient.uploadFile(filePathLocale + amendedFileName);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                    string newFilename = @"\\10.16.72.129\company\FTP\root\MSESRVDOM\exertissdg\portalUploadedFiles\" + amendedFileName;
+                    string bulkInsert = string.Format(@"BULK INSERT " + tempLoadTable + @" FROM '{0}' 
+WITH (CODEPAGE = 1252, CHECK_CONSTRAINTS, FIELDTERMINATOR =',', ROWTERMINATOR ='0x0a', FIRSTROW = 2, FIRE_TRIGGERS  ) ", newFilename);
+
+
+                    Common.runSQLNonQuery(bulkInsert);
+
+                    if (int.Parse(Common.runSQLScalar("select count(*) from " + tempLoadTable).ToString()) == 0)
+                        throw new Exception("Table empty");
+
+
+                    string updateSQL = string.Format("exec sp_portal_dsg_skuvendormappings_upload '{0}','{1}'", fuVendorSku.FileName, HttpContext.Current.User.Identity.Name.ToString());
+                    Common.runSQLNonQuery(updateSQL);
+                    ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('Upload successful, vendor sku mappings have been updated');", true);
+                }
+                catch (Exception ex)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('Upload unsuccessful, please check the format of the file and comapre with the sample report');", true);
+                }
+            }
+        }
+
+
+         protected void btnDownloadVendorSkuMapping_Click(object sender, EventArgs e)
+        {
+            string filename = "DSG_Vendor_Sku_Mapping_" + Common.timestamp() + ".csv";
+            runReport("[sp_dsgdownloadvendorskumappings]", filename);
+        }
     }
 }
