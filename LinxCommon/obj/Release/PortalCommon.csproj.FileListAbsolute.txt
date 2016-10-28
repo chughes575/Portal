@@ -47,3 +47,15 @@ C:\Portal Repo\Portal\LinxCommon\obj\Release\PortalCommon.csprojResolveAssemblyR
 C:\Portal Repo\Portal\LinxCommon\obj\Release\PortalCommon.csproj.ResolveComReference.cache
 C:\Portal Repo\Portal\LinxCommon\obj\Release\PortalCommon.dll
 C:\Portal Repo\Portal\LinxCommon\obj\Release\PortalCommon.pdb
+C:\Users\Chris\Documents\Portal\LinxCommon\bin\Release\PortalCommon.dll.config
+C:\Users\Chris\Documents\Portal\LinxCommon\bin\Release\PortalCommon.dll
+C:\Users\Chris\Documents\Portal\LinxCommon\bin\Release\PortalCommon.pdb
+C:\Users\Chris\Documents\Portal\LinxCommon\bin\Release\NPOI.dll
+C:\Users\Chris\Documents\Portal\LinxCommon\bin\Release\NPOI.OOXML.dll
+C:\Users\Chris\Documents\Portal\LinxCommon\bin\Release\NPOI.OpenXml4Net.dll
+C:\Users\Chris\Documents\Portal\LinxCommon\bin\Release\NPOI.OpenXmlFormats.dll
+C:\Users\Chris\Documents\Portal\LinxCommon\bin\Release\Tamir.SharpSSH.dll
+C:\Users\Chris\Documents\Portal\LinxCommon\obj\Release\PortalCommon.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Documents\Portal\LinxCommon\obj\Release\PortalCommon.csproj.ResolveComReference.cache
+C:\Users\Chris\Documents\Portal\LinxCommon\obj\Release\PortalCommon.dll
+C:\Users\Chris\Documents\Portal\LinxCommon\obj\Release\PortalCommon.pdb

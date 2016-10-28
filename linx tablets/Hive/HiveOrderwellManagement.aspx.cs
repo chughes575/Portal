@@ -64,26 +64,35 @@ namespace linx_tablets.Hive
 
             Response.End();
         }
+        //private void runReport(string query, string filename)
+        //{
+        //    //this.Session["ReportQuery"] = (object)query;
+        //    //this.Session["ReportQueryIsSp"] = (object)false;
+        //    //this.Session["ReportDelimiter"] = (object)",";
+        //    //this.Session["ReportHasHeader"] = (object)true;
+        //    //this.Session["ReportFileName"] = (object)filename;
+        //    //this.Session["ReportTextQualifier"] = (object)"\"";
+        //    //this.Response.Redirect("~/reporting/report-export-csv.aspx");
+        //    string filePathD = @"C:\linx-tablets\replen files\";
+
+        //    filename = filename.Replace(".csv", ".xls");
+        //    DataSet dsConsignmentStock = Common.runSQLDataset(query);
+
+        //    PortalCommon.Excel.GenerateExcelSheetNew(dsConsignmentStock, "Download", filePathD + filename);
+
+        //    FileInfo file = new FileInfo(filePathD + filename);
+        //    DownloadFile(file);
+        //}
         private void runReport(string query, string filename)
         {
-            //this.Session["ReportQuery"] = (object)query;
-            //this.Session["ReportQueryIsSp"] = (object)false;
-            //this.Session["ReportDelimiter"] = (object)",";
-            //this.Session["ReportHasHeader"] = (object)true;
-            //this.Session["ReportFileName"] = (object)filename;
-            //this.Session["ReportTextQualifier"] = (object)"\"";
-            //this.Response.Redirect("~/reporting/report-export-csv.aspx");
-            string filePathD = @"C:\linx-tablets\replen files\";
-
-            filename = filename.Replace(".csv", ".xls");
-            DataSet dsConsignmentStock = Common.runSQLDataset(query);
-
-            PortalCommon.Excel.GenerateExcelSheetNew(dsConsignmentStock, "Download", filePathD + filename);
-
-            FileInfo file = new FileInfo(filePathD + filename);
-            DownloadFile(file);
+            this.Session["ReportQuery"] = (object)query;
+            this.Session["ReportQueryIsSp"] = (object)false;
+            this.Session["ReportDelimiter"] = (object)",";
+            this.Session["ReportHasHeader"] = (object)true;
+            this.Session["ReportFileName"] = (object)filename;
+            this.Session["ReportTextQualifier"] = (object)"\"";
+            this.Response.Redirect("~/reporting/report-export-csv.aspx");
         }
-
         protected void gvBundleProducts_RowDataBound(object source, GridViewRowEventArgs e)
         {
 
@@ -130,7 +139,7 @@ select distinct dateadd(day, (datepart(weekday,cast(despatch_date as date))*-1)+
 
         protected void btnDownloadVendorSalesOut_Click(object sender, EventArgs e)
         {
-            runReport("select * from vw_vednorsalesoutweeks order by orderdate desc", "Vendor_sales_out_weekly_report_" + Common.timestamp() + ".csv");
+            runReport(@"exec sp_hivevendorsaleslinesdownload", "Vendor_sales_out_weekly_report_" + Common.timestamp() + ".csv");
         }
     }
 }

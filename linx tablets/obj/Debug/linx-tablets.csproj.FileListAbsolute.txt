@@ -73,3 +73,17 @@ C:\Users\Chris\Pictures\Portal\linx tablets\bin\Microsoft.Web.Infrastructure.xml
 C:\Users\Chris\Pictures\Portal\linx tablets\obj\Debug\linx-tablets.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Pictures\Portal\linx tablets\obj\Debug\linx-tablets.dll
 C:\Users\Chris\Pictures\Portal\linx tablets\obj\Debug\linx-tablets.pdb
+C:\Users\Chris\Documents\Portal\linx tablets\bin\linx-tablets.dll.config
+C:\Users\Chris\Documents\Portal\linx tablets\bin\linx-tablets.dll
+C:\Users\Chris\Documents\Portal\linx tablets\bin\linx-tablets.pdb
+C:\Users\Chris\Documents\Portal\linx tablets\bin\PortalCommon.dll
+C:\Users\Chris\Documents\Portal\linx tablets\bin\Renci.SshNet.dll
+C:\Users\Chris\Documents\Portal\linx tablets\bin\EnvDTE80.dll
+C:\Users\Chris\Documents\Portal\linx tablets\bin\EnvDTE.dll
+C:\Users\Chris\Documents\Portal\linx tablets\bin\Tamir.SharpSSH.dll
+C:\Users\Chris\Documents\Portal\linx tablets\bin\stdole.dll
+C:\Users\Chris\Documents\Portal\linx tablets\bin\PortalCommon.pdb
+C:\Users\Chris\Documents\Portal\linx tablets\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Chris\Documents\Portal\linx tablets\obj\Debug\linx-tablets.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Documents\Portal\linx tablets\obj\Debug\linx-tablets.dll
+C:\Users\Chris\Documents\Portal\linx tablets\obj\Debug\linx-tablets.pdb

@@ -61,14 +61,11 @@ select distinct dateadd(day, (datepart(weekday,cast(despatch_date as date))*-1)+
                     <asp:GridView ID="GridView1" DataSourceID="sqlDsWeeklyVendorSalesOut" CssClass="CSSTableGenerator" runat="server" AutoGenerateColumns="false">
                       <Columns>
                           <asp:BoundField DataField="Orderdate" DataFormatString="{0:f}"     HeaderText ="Week" />
-                          <asp:BoundField DataField="Amazon Orders"     HeaderText ="Amazon Orders" /> 
-                           <asp:BoundField DataField="Amazon Units"     HeaderText ="Amazon Units" />
-
-                          <asp:BoundField DataField="SDG Orders"     HeaderText ="SDG Orders" /> 
-                           <asp:BoundField DataField="SDG Units"     HeaderText ="SDG Units" />
-
-                          <asp:BoundField DataField="Screwfix Orders"     HeaderText ="Screwfix Orders" /> 
-                           <asp:BoundField DataField="Screwfix Units"     HeaderText ="Screwfix Units" />
+                          <asp:BoundField DataField="Customer Account Code"     HeaderText ="Customer Account Code" /> 
+                          <asp:BoundField DataField="Customer Name"     HeaderText ="Customer Name" /> 
+                          
+                           <asp:BoundField DataField="Orders"     HeaderText ="Orders" />
+                           <asp:BoundField DataField="Units"     HeaderText ="Units" />
                             
                       </Columns>
                           </asp:GridView>
