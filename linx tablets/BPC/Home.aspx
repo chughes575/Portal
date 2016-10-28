@@ -18,7 +18,7 @@
         });
         </script>
     <asp:SqlDataSource ID="sqlDSBCWeeklyExports" runat="server" ConnectionString="<%$ ConnectionStrings:MSEConnectionString1 %>"
-        SelectCommand="select * from MSE_BPCWeeklyExports order by ExportDate desc"></asp:SqlDataSource>
+        SelectCommand="select * from MSE_BPCWeeklyExports order by intakeExportDate desc"></asp:SqlDataSource>
 
     <div class="container">
         <div class="row">
@@ -26,9 +26,27 @@
                 <div class="row">
                     <h1>BPC HOME</h1>
 
-                    <h2>Last Import/Upload updates</h2>
+                    <h3>BPC File Exports</h3>
+                    <ul>
+                        <li><b>Download Current File:</b> This will download a copy of the current export that would be exported to bpc</li>
+                        <li><b>Resubmit Current File:</b> This will resubmit the current export to bpc</li>
+                    </ul>
                     <asp:GridView ID="gvBPCWeeklyExports" CssClass="CSSTableGenerator" runat="server" DataSourceID="sqlDSBCWeeklyExports" AutoGenerateColumns="true" >
-                        
+                        <Columns>
+                            <asp:TemplateField>
+                                <HeaderTemplate></HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnDownloadCurrentFile" runat="server" Text="Download Current File" OnClick="btnDownloadCurrentFile_Click" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <HeaderTemplate></HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnResubmitCurrentFile" runat="server" Text="Resubmit Current File" OnClick="btnResubmitCurrentFile_Click" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                        </Columns>
 
                     </asp:GridView>
                     <h2>BPC Export Management</h2>
@@ -44,12 +62,13 @@
                     </ul>
                     <br />
                     Values in green below are the Customer specific values sent to BPC to uniquely identify which customer the data relates to.
+                    Values in red below are mandatory and cannot be populated with blank values.
                     <asp:GridView
                         ID="gvBPCExports"
                         runat="server"
                         AutoGenerateColumns="False"
                         DataKeyNames="CustomerID" CssClass="CSSTableGenerator"
-                        OnRowCancelingEdit="gvBPCExports_RowCancelingEdit" OnRowEditing="gvBPCExports_RowEditing" OnRowUpdating="gvBPCExports_RowUpdating">
+                        OnRowCancelingEdit="gvBPCExports_RowCancelingEdit" OnRowEditing="gvBPCExports_RowEditing" OnRowUpdating="gvBPCExports_RowUpdating" OnRowDataBound="gvBPCExports_RowDataBound">
                         <RowStyle BackColor="#EFF3FB" />
                         <Columns>
                             <asp:BoundField DataField="CustomerID" ReadOnly="true" HeaderText="Customer ID" />
@@ -74,6 +93,22 @@
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="lblCustomer_S" runat="server" Text='<%# Bind("Customer_S") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Brand" HeaderStyle-ForeColor="Red">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txt_brand" runat="server" Text='<%# Bind("Brand") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblBrand" runat="server" Text='<%# Bind("Brand") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Business Unit" HeaderStyle-ForeColor="Red">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txt_BusinessUnit" runat="server" Text='<%# Bind("[Business Unit]") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblBusinessUnit" runat="server" Text='<%# Bind("[Business Unit]") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
@@ -114,7 +149,9 @@
                                 </ItemTemplate>
                                 <ItemStyle Width="50px" />
                             </asp:TemplateField>
-
+                            <asp:BoundField DataField="Last Forecast Date"  DataFormatString="{0:f}" ReadOnly="true" HeaderText="Last Forecast Date" />
+                            <asp:BoundField DataField="Last Epos Date" DataFormatString="{0:f}" ReadOnly="true" HeaderText="Last Epos/Sales Date" />
+                            <asp:BoundField DataField="Last Cust Stock Date" DataFormatString="{0:f}" ReadOnly="true" HeaderText="Last Cust Stock Date" />
                         </Columns>
 
                     </asp:GridView>

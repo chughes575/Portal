@@ -1,0 +1,49 @@
+
+.error 
+{
+	color: #b90000;
+	border: 1px dotted #b90000;
+}
+
+.field-error 
+{
+	color: #b90000;
+	border: 1px dotted #b90000;
+}
+
+input.error,
+input.field-error,
+textarea.field-error,
+select.field-error  
+{
+	color: #fff;
+	background-color: #9a2525;
+}
+
+label.error, 
+.label.error  
+{
+	display: none !important;
+}
+
+.input-radio.field-error  
+{
+	border: none;
+}
+
+label.field-error, 
+.label.field-error, 
+label.error, 
+.label.error  
+{
+	border: none;
+	color: #fff;
+}
+
+label.error, 
+.label.error, 
+.divisions label.error, 
+.divisions .label.error  
+{
+	display: none !important;
+}

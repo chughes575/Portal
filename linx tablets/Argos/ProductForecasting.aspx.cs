@@ -27,6 +27,9 @@ namespace linx_tablets.Argos
             {
                 string ForecastSellThruWeeksUsed = Common.runSQLScalar("select configvalue from PortalConfig where ConfigKey='ForecastWeeksUsed' and CustomerID=4").ToString();
                 ddlForecastAmountUsed.SelectedIndex = ddlForecastAmountUsed.Items.IndexOf(ddlForecastAmountUsed.Items.FindByValue(ForecastSellThruWeeksUsed));
+
+                string selectSQL = "select configvalue from portalconfig where configkey='SellThruOverwrite' and customerid=" + 4;
+                txtSellThroughPercentage.Text = Common.runSQLScalar(selectSQL).ToString();
             }
 
             string historicForecastYears = @"select distinct a.forecastyear from (
@@ -37,6 +40,8 @@ select 2016 as forecastyear
             ddlHistoricForecastYears.DataSource = Common.runSQLDataset(historicForecastYears);
             ddlHistoricForecastYears.DataBind();
 
+
+
         }
         protected void btnUpdateForecastUsed_Click(object sender, EventArgs e)
         {
@@ -44,6 +49,13 @@ select 2016 as forecastyear
             Common.runSQLNonQuery("update PortalConfig set configvalue='" + leadTime + "' where ConfigKey='ForecastWeeksUsed' and CustomerID=4");
             Common.runSQLNonQuery(string.Format("update mse_portalforecastreportmanagement set lastfiledate=getdate(),Username='{0}' where reportid=44", HttpContext.Current.User.Identity.Name.ToString()));
             ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('Forecast Weeks Used Update Successful');", true);
+        }
+        protected void btnUpdateSellThroughOverwrite_Click(object sender, EventArgs e)
+        {
+
+            string updateSQL = string.Format("update portalconfig set configvalue={0} where configkey='SellThruOverwrite' and customerid=" + 4, txtSellThroughPercentage.Text);
+            Common.runSQLNonQuery(updateSQL);
+            ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('Sell Through Overwrite Update Successful');", true);
         }
         protected void DownloadFile(FileInfo file)
         {

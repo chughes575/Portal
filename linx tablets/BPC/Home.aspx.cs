@@ -27,59 +27,24 @@ namespace linx_tablets.BPC
             }
 
         }
+        protected void gvBPCExports_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                CheckBox chkSalesExportEdit = (System.Web.UI.WebControls.CheckBox)e.Row.FindControl("chkSalesExportEdit");
+                CheckBox chkStockExportEdit = (System.Web.UI.WebControls.CheckBox)e.Row.FindControl("chkStockExportEdit");
+                int customerid = int.Parse(DataBinder.Eval(e.Row.DataItem, "CustomerID").ToString());
+                if (customerid!= 2 && customerid!= 4 && customerid != 6 && (chkSalesExportEdit!= null) )
+                {
+                    chkSalesExportEdit.Enabled=false;
+                    chkStockExportEdit.Enabled=false;
+                }
+            }
+
+        }
         protected void bindBPCExports()
         {
-            string exportsSQL = @"select pc.CustomerID,pc.CustomerName,pc.CustomerCode as Oracle_Customer_Code, bpc.Customer_Code as BPC_Customer_Code
-,bpc.Customer_S, bpc.ForecastExportEnabled,bpc.SalesExportEnabled,bpc.StockExportEnabled,
-case 
-when pc.CustomerID = 1 then fcr1.lastfiledate
-when pc.CustomerID = 2 then fcr2.lastfiledate
-when pc.CustomerID = 4 then fcr4.lastfiledate
-when pc.CustomerID = 5 then fcr5.lastfiledate
-when pc.CustomerID = 6 then fcr6.lastfiledate
-else getdate()
-end as [Last Forecast Date],
-case 
-when pc.CustomerID = 1 then fcrepos1.lastfiledate
-when pc.CustomerID = 2 then fcrepos2.lastfiledate
-when pc.CustomerID = 4 then fcrepos4.lastfiledate
-when pc.CustomerID = 5 then fcrepos5.lastfiledate
-when pc.CustomerID = 6 then fcrepos6.lastfiledate
-else getdate()
-end as [LAst EPOS Date],
-case 
-when pc.CustomerID = 1 then fcrinv1.lastfiledate
-when pc.CustomerID = 2 then fcrinv2.lastfiledate
-when pc.CustomerID = 4 then fcrinv4.lastfiledate
-when pc.CustomerID = 5 then fcrinv5.lastfiledate
-when pc.CustomerID = 6 then fcrinv6.lastfiledate
-else getdate()
-end as [Last Cust Stock Date]
- from MSE_BPCExports bpc 
-inner join mse_PortalCustomers pc on pc.CustomerID=bpc.CustomerID
-left outer join (select customerid, ReportType,max(ImportDate) as ReportDate from MSE_PortalSalesEposFiles
-group by customerid, ReportType) as lastimportsales on lastimportsales.customerid=bpc.customerid and lastimportsales.ReportType='sales'
-left outer join (select customerid, ReportType,max(ImportDate) as ReportDate from MSE_PortalSalesEposFiles
-group by customerid, ReportType) as lastimportstock on lastimportstock.customerid=bpc.customerid and lastimportstock.ReportType='stock'
-left outer join (select customerid, ReportType,max(ImportDate) as ReportDate from MSE_PortalSalesEposFiles
-group by customerid, ReportType) as lastimportepos on lastimportepos.customerid=bpc.customerid and lastimportepos.ReportType='epos'
-left outer join mse_portalforecastreportmanagement fcr1 on fcr1.reportid=7
-left outer join mse_portalforecastreportmanagement fcr2 on fcr2.reportid=32
-left outer join mse_portalforecastreportmanagement fcr4 on fcr4.reportid=54
-left outer join mse_portalforecastreportmanagement fcr5 on fcr5.reportid=23
-left outer join mse_portalforecastreportmanagement fcr6 on fcr6.reportid=34
-
-left outer join mse_portalforecastreportmanagement fcrepos1 on fcrepos1.reportid=55   
-left outer join mse_portalforecastreportmanagement fcrepos2 on fcrepos2.reportid=56
-left outer join mse_portalforecastreportmanagement fcrepos4 on fcrepos4.reportid=57
-left outer join mse_portalforecastreportmanagement fcrepos5 on fcrepos5.reportid=40
-left outer join mse_portalforecastreportmanagement fcrepos6 on fcrepos6.reportid=52
-
-left outer join mse_portalforecastreportmanagement fcrinv1 on fcrinv1.reportid=58   
-left outer join mse_portalforecastreportmanagement fcrinv2 on fcrinv2.reportid=59
-left outer join mse_portalforecastreportmanagement fcrinv4 on fcrinv4.reportid=60
-left outer join mse_portalforecastreportmanagement fcrinv5 on fcrinv5.reportid=28
-left outer join mse_portalforecastreportmanagement fcrinv6 on fcrinv6.reportid=53";
+            string exportsSQL = @"select * from vw_bpccustomers";
             gvBPCExports.DataSource = Common.runSQLDataset(exportsSQL);
             gvBPCExports.DataBind();
         }
@@ -103,17 +68,21 @@ left outer join mse_portalforecastreportmanagement fcrinv6 on fcrinv6.reportid=5
                 string customerID = this.gvBPCExports.DataKeys[e.RowIndex].Value.ToString();
                 TextBox txtBPC_Customer_Code = (TextBox)gridViewRow.FindControl("txtBPC_Customer_Code");
                 TextBox txtCustomer_S = (TextBox)gridViewRow.FindControl("txtCustomer_S");
+                TextBox txt_brand = (TextBox)gridViewRow.FindControl("txt_brand");
+                TextBox txt_BusinessUnit = (TextBox)gridViewRow.FindControl("txt_BusinessUnit");
                 CheckBox chkForecastExportEdit = (CheckBox)gridViewRow.FindControl("chkForecastExportEdit");
                 CheckBox chkSalesExportEdit = (CheckBox)gridViewRow.FindControl("chkSalesExportEdit");
                 CheckBox chkStockExportEdit = (CheckBox)gridViewRow.FindControl("chkStockExportEdit");
 
-                string updateSQL= string.Format("update MSE_BPCExports set Customer_Code='{0}',Customer_s='{1}',ForecastExportEnabled={2},SalesExportEnabled={3},StockExportEnabled={4} where Customerid={5} ", 
+                string updateSQL = string.Format("update MSE_BPCExports set Customer_Code='{0}',Customer_s='{1}',ForecastExportEnabled={2},SalesExportEnabled={3},StockExportEnabled={4},brand='{6}',[business unit]='{7}'  where Customerid={5} ", 
                     txtBPC_Customer_Code.Text,
                     txtCustomer_S.Text,
                     chkForecastExportEdit.Checked ? 1 : 0,
                     chkSalesExportEdit.Checked ? 1 : 0,
                     chkStockExportEdit.Checked ? 1 : 0,
-                    customerID
+                    customerID, 
+                    txt_brand.Text,
+                    txt_BusinessUnit.Text
                     );
 
 
@@ -140,6 +109,26 @@ left outer join mse_portalforecastreportmanagement fcrinv6 on fcrinv6.reportid=5
                 }
             }
 
+        }
+
+        protected void btnDownloadCurrentFile_Click(object sender, EventArgs e)
+        {
+            runReport("exec sp_bpcfilecontents", "BPC_Export_" + Common.timestamp() + ".csv");
+        }
+        protected void btnResubmitCurrentFile_Click(object sender, EventArgs e)
+        {
+            runReport("exec sp_bpcfilecontents", "BPC_Export_" + Common.timestamp() + ".csv");
+        }
+        
+        private void runReport(string query, string filename)
+        {
+            this.Session["ReportQuery"] = (object)query;
+            this.Session["ReportQueryIsSp"] = (object)false;
+            this.Session["ReportDelimiter"] = (object)",";
+            this.Session["ReportHasHeader"] = (object)true;
+            this.Session["ReportFileName"] = (object)filename;
+            this.Session["ReportTextQualifier"] = (object)"\"";
+            this.Response.Redirect("~/reporting/report-export-csv.aspx");
         }
     }
 }

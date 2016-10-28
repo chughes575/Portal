@@ -1,0 +1,14 @@
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\BpcExportModule.exe.config
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\BpcExportModule.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\BpcExportModule.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\ActiveUp.Net.Common.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\ActiveUp.Net.Imap4.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\ActiveUp.Net.Mail.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\MSE_Common.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\NPOI.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\NPOI.OOXML.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\NPOI.OpenXml4Net.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\bin\Release\NPOI.OpenXmlFormats.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\obj\Release\BpcExportModule.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\obj\Release\BpcExportModule.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\BpcExportModule\obj\Release\BpcExportModule.pdb

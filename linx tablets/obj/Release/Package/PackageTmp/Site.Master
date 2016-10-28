@@ -213,7 +213,11 @@
                                             <img src="/images/hive_logo.png" alt="" class="img-responsive navlogo" /></a>
                                         </ContentTemplate>
                                         </asp:RoleGroup>
-                                    
+                                    <asp:RoleGroup Roles="BPCgroup">
+                                        <ContentTemplate>
+                                            <img src="/images/hive_logo.png" alt="" class="img-responsive navlogo" /></a>
+                                        </ContentTemplate>
+                                        </asp:RoleGroup>
                                     </RoleGroups>
                             
                         </asp:LoginView>
@@ -282,6 +286,14 @@
                                             
                                         </ContentTemplate>
                                     </asp:RoleGroup>
+                                    <asp:RoleGroup Roles="BPCgroup">
+                                        <ContentTemplate>
+                                            <a href="/BPC/Home.aspx">Home</a>
+                                            
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+
+                                    
                                     
                                 </RoleGroups>
                             </asp:LoginView>
@@ -346,6 +358,12 @@
                                             
                                         </ContentTemplate>
                                     </asp:RoleGroup>
+                                    <asp:RoleGroup Roles="BPCgroup">
+                                        <ContentTemplate>
+                                            <a href="/Account/Manage.aspx">Reset Password</a>
+                                            
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
                                     
                                 </RoleGroups>
                             </asp:LoginView>
@@ -393,6 +411,8 @@
                                         <a class="list-group-item small" href="/SDG/UserUploads.aspx">User Uploads</a>
                                         <a class="list-group-item small" href="/SDG/ProductStatusDashboard.aspx">Product Status Dashboard</a>
                                         <a class="list-group-item small" href="/SDG/Vendorpo.aspx">Vendor PO Recommendations</a>
+                                        
+                                        <a class="list-group-item small" href="/SDG/Emailreporting.aspx">Stock/Sales email management</a>
 
                                         </ContentTemplate>
                                     </asp:RoleGroup>
@@ -434,7 +454,7 @@
                                             <a href="#" data-toggle="collapse" data-target="#argos">Argos Management</a>
                                     <div id="argos" class="sublinks collapse">
                                         <a class="list-group-item small" href="/Argos/Dashboard.aspx">Availability Dashboard</a>
-                                        <a class="list-group-item small" href="/Argos/ProductForecasting.aspx">Product Forecasting</a>
+                                        <a class="list-group-item small" href="/Argos/ProductForecasting.aspx">Product Forecasting / Intake Management</a>
                                         <a class="list-group-item small" href="/Argos/ProductRange.aspx">Product Range</a>
                                         <a class="list-group-item small" href="/Argos/Vendorpo.aspx">Vendor PO Recommendations</a>
                                         
@@ -451,6 +471,8 @@
                                         <a class="list-group-item small" href="/Dixons/ProductForecasting.aspx">Product Forecasting</a>
                                         <a class="list-group-item small" href="/Dixons/ProductRange.aspx">Product Range</a>
                                         <a class="list-group-item small" href="/Dixons/StockSalesUpload.aspx">Stock/Sales Upload</a>
+                                        <a class="list-group-item small" href="/Dixons/Emailreporting.aspx">Stock/Sales email management</a>
+                                        
                                         <a class="list-group-item small" href="/Dixons/Vendorpo.aspx">Vendor PO Recommendations</a>
                                         
                                         
@@ -473,7 +495,8 @@
                                         
                                         </ContentTemplate>
                                     </asp:RoleGroup>
-                                
+                                  
+                                    
                                     </RoleGroups>
                                 <LoggedInTemplate>
                                     

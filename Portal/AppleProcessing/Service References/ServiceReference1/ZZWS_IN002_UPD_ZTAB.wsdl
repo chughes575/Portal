@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="urn:sap-com:sprx:ep:cust:UPDATE" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n1="urn:sap-com:document:sap:rfc:functions" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" targetNamespace="urn:sap-com:sprx:ep:cust:UPDATE" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl" />
+  </wsdl:documentation>
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="IF_IF_ZWS_IN002_UPD_ZTAB">
+    <sapsession:Session xmlns:sapsession="http://www.sap.com/webas/630/soap/features/session/">
+      <sapsession:enableSession>false</sapsession:enableSession>
+    </sapsession:Session>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_Z_MMFM_IN002_UPD_ZTAB">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema xmlns="urn:sap-com:document:sap:rfc:functions" xmlns:xi0="urn:sap-com:document:sap:rfc:functions" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:element name="Z_MMFM_IN002_UPD_ZTAB">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CH_CHARACT" type="xi0:ZMMTT_CHARACT" />
+            <xsd:element name="IM_MANUFACTURER" type="xi0:char18" />
+            <xsd:element name="IM_MANUF_PART_NO" type="xi0:char40" />
+            <xsd:element name="IM_MATERIAL" type="xi0:char18" />
+            <xsd:element name="IM_TIMESTAMP" type="xi0:char15" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Z_MMFM_IN002_UPD_ZTABResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CH_CHARACT" type="xi0:ZMMTT_CHARACT" />
+            <xsd:element name="EX_SUBRC" type="xi0:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ZMMSTR_CHARACT">
+        <xsd:sequence>
+          <xsd:element name="CHARACT_NAME" type="xi0:char30" />
+          <xsd:element name="CHARACT_VALUE" type="xi0:char30" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMMTT_CHARACT">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xi0:ZMMSTR_CHARACT" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="char1">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char15">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="15" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char18">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="18" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char30">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char40">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Z_MMFM_IN002_UPD_ZTAB">
+    <wsdl:part name="Z_MMFM_IN002_UPD_ZTAB" element="n1:Z_MMFM_IN002_UPD_ZTAB" />
+  </wsdl:message>
+  <wsdl:message name="Z_MMFM_IN002_UPD_ZTABResponse">
+    <wsdl:part name="Z_MMFM_IN002_UPD_ZTABResponse" element="n1:Z_MMFM_IN002_UPD_ZTABResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ZWS_IN002_UPD_ZTAB">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#IF_IF_ZWS_IN002_UPD_ZTAB" />
+    </wsp:Policy>
+    <wsdl:operation name="Z_MMFM_IN002_UPD_ZTAB">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_Z_MMFM_IN002_UPD_ZTAB" />
+      </wsp:Policy>
+      <wsdl:input message="tns:Z_MMFM_IN002_UPD_ZTAB" />
+      <wsdl:output message="tns:Z_MMFM_IN002_UPD_ZTABResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

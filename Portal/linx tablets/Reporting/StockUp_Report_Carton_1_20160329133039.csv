@@ -1,0 +1,6 @@
+itemid,applecode,localeid,demandqtyexertis,demandqtyexertiscarton,demandqtyexertisapple,demandqtyexertisapplecarton,demandqtyexertis100,demandqtyexertis100carton,assignedqty,processed
+207,HHXR2ZM/A,1,821,830,495,500,379,400,0,False
+208,HHXR2ZM/A,2,281,300,-11,0,-115,-100,0,False
+209,HHXR2ZM/A,3,174,200,97,100,70,100,0,False
+210,HHXR2ZM/A,4,80,100,-68,-60,-121,-100,0,False
+211,HHXR2ZM/A,5,32,40,9,10,0,0,0,False

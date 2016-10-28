@@ -1,0 +1,275 @@
+﻿
+.gridview
+{
+	min-width: 1200px;
+	margin-top: 20px;
+}
+
+.gridview table 
+{
+	border-collapse: separate;
+}
+
+.gridview .gv-header
+{
+	background-color: #333C48;
+	border: 1px solid #999;
+	/*color: #fb9500;*/
+	color: #e6bf4d;
+}
+
+.gridview tr.gv-header a
+{
+	color: #e6bf4d;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.gridview tr.row, 
+.gridview tr.row-alternate, 
+.gridview tr.row-selected 
+{
+	height: 40px;
+	padding: 5px 0px;
+	background-color: #4c5460;
+	color:#fff;
+}
+
+.gridview tr.row-alternate 
+{
+	background-color: #414A56;
+}
+
+.gridview tr.row-selected 
+{
+	border-left: 1px solid green; 
+	border-right: 1px solid green; 
+}
+
+.gridview tr.row-selected td 
+{
+	border-top: 1px solid green; 
+	border-bottom: 1px solid green; 
+}
+
+.gridview th, 
+.gridview td
+{
+	height: 40px;
+	vertical-align: middle;
+}
+
+.gridview th.system-column,
+.gridview td.system-column, 
+.gridview .control-system 
+{
+	display: none;
+}
+
+.gridview th.action-column,
+.gridview td.action-column
+{
+	min-width: 140px;
+	width: 140px;
+	max-width: 140px;
+	padding: 5px;
+}
+
+.gridview .header-icon, 
+.gridview .line-icon 
+{
+	width: 20px;
+	height: 20px;
+	margin: 0 5px 0 0;
+	padding: 0 3px;
+	float: left;
+}
+
+.gridview input.read-only
+{
+	font-family: "Calibri",Verdana,Arial,Helvetica,sans-serif;
+	font-size: 13px;
+	background-color: transparent;
+	color: #fff;
+	/*border: 1px solid red !important;*/
+}
+
+.gridview .paging table
+{
+	width: 1200px;
+	margin-top: 20px;
+	background-color: #333C48;
+	border: 1px solid #999;
+	display: block;
+}
+
+.gridview .paging td
+{
+	height: 50px;
+	color: #fb9500;
+}
+
+.gridview .paging td a:hover
+{
+	border: solid 1px #e6bf4d; 
+}
+
+.gridview .paging td a, 
+.gridview .paging td span 
+{
+	width: 35px;
+	margin-left: 7px;
+	padding: 7px;
+	font-weight: bold; 
+	text-align: center;
+	text-decoration: none; 
+	background-color: #333C48;
+	color: #e6bf4d;
+	display: block;
+}
+
+.gridview .paging td a
+{
+	border: solid 1px #667080;
+}
+
+.gridview .paging td span 
+{
+	border: solid 1px #e6bf4d;
+}
+
+/* 
+
+	gridview defaults
+
+*/
+/*
+.gridviewHeader 
+{
+	width: 1198px;
+	border: 1px solid #ccc;
+	background-color: #e8e8e8;
+}
+
+.gridview 
+{
+	min-width: 1200px;
+}
+
+.gridview-header .filter-field, 
+.gridview-header .search-field 
+{
+	width: 250px;
+}
+
+.gridview-header .filter-field 
+{
+	margin: 2px 0 0 0;
+}
+
+.gridview-header .search-btn 
+{
+	padding: 0 20px;
+	float: right;
+}
+
+.gridview tr {
+	font-size: 13px;
+}
+
+.gridview tr.gv-header 
+{
+	height: 40px;
+	line-height: 35px;
+	color: #fff;
+}
+
+.gridview tr.gv-header a 
+{
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.gridview tr.row,
+.gridview tr.row-alternate,
+.gridview tr.row-selected
+{
+	height: 40px;
+	padding: 5px 0;
+	background-color: #ccc;
+}
+
+.gridview td, 
+.gridview th 
+{
+	min-width: 150px;
+	height: 40px;
+	vertical-align: middle;
+}
+
+/*.gridview input[type = text] 
+{
+	width: 130px;
+}*/
+/*
+.gridview tr.row-selected 
+{
+	border-left: 1px solid green; 
+	border-right: 1px solid green; 
+}
+
+.gridview tr.row-alternate 
+{
+	background-color: #e8e8e8;
+}
+
+.gridview tr.row-selected td 
+{
+	border-top: 1px solid green; 
+	border-bottom: 1px solid green; 
+}
+
+.gridview th.system-column,
+.gridview td.system-column, 
+.gridview .control-system 
+{
+	display: none;
+}
+
+.gridview td.action-column
+{
+	width: 150px;
+	padding: 5px;
+}
+
+.gridview .header-icon, 
+.gridview .line-icon 
+{
+	width: 20px;
+	height: 20px;
+	margin: 0 5px 0 0;
+	padding: 0 3px;
+	float: left;
+}
+
+/* 
+
+	gridview paging 
+
+*/
+
+/*
+.gv-filters div 
+{
+	padding: 5px 10px;
+	border: 1px solid #999;
+	color: #999;
+}
+
+.gv-filters div.true 
+{
+	border: 1px solid #fff;
+	color: #fff;
+}
+*/

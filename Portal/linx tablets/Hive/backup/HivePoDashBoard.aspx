@@ -1,0 +1,112 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" MaintainScrollPositionOnPostback="true" AutoEventWireup="true" CodeBehind="HivePoDashBoard.aspx.cs" Inherits="linx_tablets.Hive.VendorPO" %>
+
+
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <hgroup class="title">
+        <h1><%: Title %>.</h1>
+    </hgroup>
+    <script type="text/javascript" src="/Scripts/jquery.tablesorter.js"></script> 
+    <script src="/Scripts/jquery.tablescroll.js"></script>
+    <script src="/Scripts/jquery.tablesorter.pager.js"></script>
+    
+    <script type="text/javascript">
+      
+
+
+        jQuery(document).ready(function ($) {
+            //jQuery('#MainContent_gvBundleSuggestions').tableScroll({ height: 550, flush: false });
+
+            
+            
+            
+                $("#MainContent_gvBundleSuggestions").tablesorter();
+            
+
+        });
+      
+        </script>
+    
+    <asp:SqlDataSource ID="sqlDSorscleLastRunPoStock" runat="server" ConnectionString="<%$ ConnectionStrings:MSEConnectionString1 %>"
+        SelectCommand="select *,datediff(hour,lastfiledate,getdate()) as dateDiffImport from mse_portalforecastreportmanagement 
+where reportid in (3,25,23,
+24)
+order by lastfiledate desc"></asp:SqlDataSource>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 download-page">
+                <div class="row">
+                    <h1>Hive POs and Availability Dashboard</h1>
+                    <b>Hive Current forecast / Sell through weeks used:</b> <asp:Label ID="lblWeeksUsed" runat="server"></asp:Label>
+                    
+                    <br />
+                    <h2>Bundle Availability  Dashboard</h2>
+                    <div id="dvClaimHeader" class="gridviewHeader" runat="server">
+                       
+                        <asp:DropDownList ID="ddlStockStatusGV_FilterExertisStock" Width="220px" CssClass="filter-field" runat="server">
+                            <asp:ListItem Text="Exertis Stock" Selected="True" Value="All"></asp:ListItem>
+                            <asp:ListItem Text="In Stock" Value="Zero"></asp:ListItem>
+                            <asp:ListItem Text="Out Of Stock" Value="Not Zero"></asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:DropDownList ID="ddlStockStatusGV_FilterExertisPO" Width="220px" CssClass="filter-field" runat="server">
+                            <asp:ListItem Text="Exertis PO" Selected="True" Value="All"></asp:ListItem>
+                            <asp:ListItem Text="Yes" Value="Has Pos"></asp:ListItem>
+                            <asp:ListItem Text="No" Value="No Pos"></asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:DropDownList ID="ddlStockStatusGV_FilterCustomerOrders" Width="220px" CssClass="filter-field" runat="server">
+                            <asp:ListItem Text="Current Orders" Selected="True" Value="All"></asp:ListItem>
+                            <asp:ListItem Text="Yes" Value="Backordered"></asp:ListItem>
+                            <asp:ListItem Text="No" Value="No Backorders"></asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:DropDownList ID="ddlStockStatusGV_FilterSafetyRating" Visible="true" Width="220px" CssClass="filter-field" runat="server">
+                            <asp:ListItem Text="Safety Rating (Show all)" Selected="True" Value="All"></asp:ListItem>
+                            <asp:ListItem Text="Red" Value="Red"></asp:ListItem>
+                            <asp:ListItem Text="Green" Value="Green"></asp:ListItem>
+                            <asp:ListItem Text="Amber" Value="Amber"></asp:ListItem>
+                            <asp:ListItem Text="Grey/N/A" Value="grey"></asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        <br />
+
+                        <asp:Button ID="btnFilterReport" runat="server" Text="Filter results" OnClick="btnFilterReport_Click" />
+                        &nbsp;<asp:ImageButton ID="ImageButton1" runat="server" OnClick="excelImgIcon_Click" ImageUrl="~/Images/Excel-icon.png" Width="20px" />Download results
+                      
+                    </div>
+                    <h5>Table legend (Safety Rating)</h5>
+                    <table>
+                        <tr>
+                            <td style="background-color:#ff0000">Red</td>
+                            <td style="padding-left:7px"> Between 0 and 8 Weeks Cover</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#ffcc00">Amber</td>
+                            <td style="padding-left:7px"> Between 9 and 12</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#00cc66">Green</td>
+                            <td style="padding-left:7px">  Weeks Cover 13 Weeks Or More</td>
+                        </tr>
+                        
+                        <tr>
+                            <td style="background-color:#b7aeae"> </td>
+                            <td style="padding-left:7px"> No Current Allocated Orders/No Forecast/No Sell Through</td>
+
+
+                            
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+                    <div style="width:1300px; overflow:scroll" >
+                    <asp:GridView ID="gvBundleSuggestions"  Visible="true" runat="server" CssClass="tablesorter" OnDataBound="gvBundleSuggestions_DataBound" UseAccessibleHeader="true" OnPreRender="gvBundleSuggestions_PreRender"></asp:GridView>
+                        </div>
+
+
+                   
+                    
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>

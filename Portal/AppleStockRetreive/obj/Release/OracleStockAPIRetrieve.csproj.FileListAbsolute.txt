@@ -1,0 +1,11 @@
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\bin\Release\AppleStockRetreive.exe.config
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\bin\Release\AppleStockRetreive.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\bin\Release\AppleStockRetreive.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\bin\Release\Newtonsoft.Json.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\bin\Release\RestSharp.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\bin\Release\Tamir.SharpSSH.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\bin\Release\Newtonsoft.Json.xml
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\bin\Release\RestSharp.xml
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\obj\Release\OracleStockAPIRetrieve.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\obj\Release\AppleStockRetreive.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\AppleStockRetreive\obj\Release\AppleStockRetreive.pdb

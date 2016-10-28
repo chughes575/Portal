@@ -1,0 +1,135 @@
+
+.contact-header
+{
+	width: 1200px;
+}
+
+.row-1 
+{	
+	height: 50px;
+	line-height: 50px;
+}
+
+.row-1 #header-title
+{
+	font-size: 16px;
+	color: #fff;
+}
+
+.row-2
+{
+	width: 1160px;
+	padding: 20px;
+	background-color: #333C48; 
+	color: #fff;
+	border: 1px solid #999;
+}
+
+.row-2 .contact-type,
+.row-2 .contact-details
+{
+	margin-top: 23px;
+	padding-top: 23px;
+	border-top: 1px solid #999;
+}
+
+.row-2 .contact-type span
+{
+	margin-top: -3px;
+}
+
+.row-2 ul,
+.row-2 li
+{
+	margin: 0;
+	padding: 0;
+}
+
+.row-2 .box-1 li
+{
+	width: 540px;
+}
+
+.row-2 .box-2 li
+{
+	width: 550px;
+}
+
+.row-2 .box-1
+{
+	min-height: 292px;
+	margin-top: 28px;
+}
+
+.row-2 .box-2
+{
+	min-height: 320px;
+	margin: 0 0 0 40px;
+}
+
+.row-3
+{
+	width: 1200px;
+	padding-top: 10px;
+	color: #fff;
+}
+
+.row-4
+{
+	width: 1200px;
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid #999;
+}
+
+ /* 
+	 
+	 form elements
+	 
+	*/
+
+.row-1 #MainContent_tbContactID {
+	min-width: 80px;
+	width: 80px;
+	color: #fff;
+	background: transparent;
+	border: none;
+}
+
+ .row-2 span,
+ .row-3 span
+{ /* label */
+	width: 156px;
+	margin: 4px 0;
+	padding: 2px;
+	font-size: 10pt;
+	display: block;
+	float: left;
+}
+
+.row-2 select,
+.row-3 select
+{
+	width: 360px;
+	margin: 4px 0;
+	padding: 4px 2px;
+}
+
+.row-2 input[type="text"],
+.row-3 input[type="text"]
+{
+	width: 350px;
+	margin: 4px 0;
+	padding: 4px;
+}
+
+.row-2 #MainContent_tbNotes
+{
+	width: 540px;
+	height: 260px;
+}
+
+.row-4 #MainContent_btnSaveContact {
+	margin: 0 1px 0 0;
+	padding: 4px 15px;
+}

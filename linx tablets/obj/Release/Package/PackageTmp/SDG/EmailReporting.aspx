@@ -20,11 +20,18 @@ where em.customerid=1
         <div class="row">
             <div class="col-lg-12 download-page">
                 <div class="row">
-                    
+                    <asp:Panel ID="pnlOK" BackColor="Yellow"  runat="server" Visible="false"><p class="msg done">Email report -<br /><asp:Label ID="lblNumberImported" runat="server"></asp:Label></p></asp:Panel>
                     <h2>Weekly sales email management</h2>
-                    The following table shows the status of the weekly report emails.<br /> A week can be expanded to view the full vendor breakdown. <br />To download all associated vendor information use the download vendors button below. <br />
-                    
-                        <asp:GridView ID="gvEmailReports" CssClass="CSSTableGenerator" OnRowDataBound="gvEmailReports_OnRowDataBound" OnRowCommand="gvEmailReports_RowCommand" runat="server" DataSourceID="sqlDSorscleLastLeadTime" AutoGenerateColumns="false">
+                    The following table shows the status of the weekly report emails.<br />
+                    <br />
+                   <b>Download Vendors:</b> This will download all vendor data for this week.<br />
+                    <b>Send Emails:</b> This will send all stock/sales emails for the current week containing sales data for the previous week which are outstanding
+                    <br /><br />
+                     A week can be expanded to view the full vendor breakdown where the following can be actioned- <br />
+                    <b>Send/Resend:</b> This will send/resend the stock sales email to the selected vendor<br />
+                    <b>Preview:</b> This will download a copy of the stock sales email which will be emailed to the vendor
+                      <br />
+                      <asp:GridView ID="gvEmailReports" CssClass="CSSTableGenerator" OnRowDataBound="gvEmailReports_OnRowDataBound" OnRowCommand="gvEmailReports_RowCommand" runat="server" DataSourceID="sqlDSorscleLastLeadTime" AutoGenerateColumns="false">
                             <Columns>
                                 <asp:TemplateField HeaderText="Daily breakdown">
                 <ItemTemplate>
@@ -44,13 +51,39 @@ where em.customerid=1
                                 </ItemTemplate>
                             </asp:TemplateField>
                                 <asp:TemplateField>
+                                <HeaderTemplate>Send emails</HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnSendReportVendors" runat="server" Text="Send Vendor Emails" CommandName="sendemails" CommandArgument='<%# Eval("ID") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                                <asp:TemplateField>
+                                <HeaderTemplate>Download Consolidated</HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnDownloadConsolidated" runat="server" Text="Download Consolidated" CommandName="downloadconsolidated" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                                <asp:TemplateField>
                 <ItemTemplate>
                     </td></tr>
                     <tr>
                         <td colspan="100">
                             <div id='div<%# Eval("ID") %>' style="display: none; position: relative; left: 25px;">
-                                <asp:GridView ID="gvReportVendors" runat="server"
+                                <asp:GridView ID="gvReportVendors" runat="server" OnRowCommand="gvReportVendors_RowCommand" OnRowDataBound="gvReportVendors_RowDataBound"
                                     BackColor="ActiveCaption" AutoGenerateColumns="True">
+                                    <Columns>
+                                        <asp:TemplateField>
+                                <HeaderTemplate>Send/Resend</HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnReprocessReportVendors" runat="server" Text="Send/Resend Email" CommandName="reprocess" CommandArgument='<%# Eval("ID") + "-" + Eval("Vendor ID")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                                        <asp:TemplateField>
+                                <HeaderTemplate>Preview Stock/Sales File</HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnPreviewReportVendors" runat="server" Text="Preview" CommandName="preview" CommandArgument='<%#Eval("Vendor ID")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                                    </Columns>
                                 </asp:GridView>
                             </div>
                         </td>

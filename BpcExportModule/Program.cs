@@ -35,73 +35,133 @@ namespace BpcExportModule
         public static void runBpcForecastExport()
         {
             Common.log("Running BPC Weekly Export");
-            int outstandingCount = int.Parse(Common.runSQLScalar(@"select count(*) from MSE_BPCWeeklyExports where datepart(week,getdate())=WeekNo").ToString());
-
-            string fileName = "BPC_Exertis_Export_" + Common.timestamp() + ".csv";
-            if (outstandingCount == 0)
+            if (int.Parse(Common.runSQLScalar("select count(*) from MSE_BPCWeeklyExports where weekno=datepart(week,getdate()) and year=datepart(year,getdate())").ToString()) == 0)
             {
+                string insertSQL = "insert into MSE_BPCWeeklyExports values (datepart(week,getdate()),datepart(year,getdate()),null,null,null,null,null,null)";
+                Common.runSQLNonQuery(insertSQL);
+            }
+            int outstandingCount = int.Parse(Common.runSQLScalar(@"select count(*) from MSE_BPCWeeklyExports where datepart(week,getdate())=WeekNo and datepart(year,getdate())=year
+and (IntakeExportFilename is null or SalesExportFilename is null  or SalesExportFilename is null )").ToString());
 
+            string intakeFilename = "";
+            string salesFilename = "";
+            string stockFilename = "";
+            if (outstandingCount == 1)
+            {
+                
                 int outstandingReportCount = int.Parse(Common.runSQLScalar(@"select count(*) from (
 select 'RETAIL_PLAN' AS CATEGORY,bpc.Customer_Code AS CUSTOMER_CODE,bpc.Customer_S AS CUSTOMER_S,'CC_GB01' AS [C_CODE],'PR_' + catno as PROUDUCT,'RP_INTAKE_U' as RP_ACCOUNT,	'RP_CUS' as RP_AUDITTRAIL,	'BRANDVAL' as BRAND,	'2016.P01.W'+case when datepart(week,getdate())<10 then '0' else '' end + cast(datepart(week,getdate()) as varchar(2)) as TIME_WKS,ForecastWeek1 as [AMOUNT]
  from MSE_PortalForecastingDataCurrent
  fdc inner join mse_portalcustomers pc on pc.customerid=fdc.CustomerID
  left outer join MSE_BPCExports bpc on bpc.CustomerID=pc.CustomerID
-where bpc.ForecastExportEnabled=1 and ForecastWeek1 is not null
+ left outer join MSE_BPCWeeklyExports bpce on bpce.weekno=datepart(week,getdate()) and bpce.year=datepart(year,getdate())
+where bpc.ForecastExportEnabled=1 and ForecastWeek1 is not null and bpce.IntakeExportFilename is  null
 
 union
 select 'RETAIL_PLAN' AS CATEGORY,bpc.Customer_Code AS CUSTOMER_CODE,bpc.Customer_S AS CUSTOMER_S,'CC_GB01' AS [C_CODE],'PR_' + stk.CustomerSku as PROUDUCT,'RP_STOCK_U' as RP_ACCOUNT,	'RP_CUS' as RP_AUDITTRAIL,	'BRANDVAL' as BRAND,	'2016.P01.W'+case when datepart(week,getdate())<10 then '0' else '' end ++cast(datepart(week,getdate()) as varchar(2)) as TIME_WKS,sum(coalesce(stk.stockqty,0)) as [AMOUNT]
  from MSE_Retailerconsignmentstockfigures stk
   inner join mse_portalcustomers pc on pc.customerid=stk.CustomerID
  left outer join MSE_BPCExports bpc on bpc.CustomerID=pc.CustomerID
-where bpc.StockExportEnabled=1 
+  left outer join MSE_BPCWeeklyExports bpce on bpce.weekno=datepart(week,getdate()) and bpce.year=datepart(year,getdate())
+where bpc.StockExportEnabled=1 and bpce.stockExportFilename is  null
 group by bpc.Customer_Code,bpc.Customer_S,stk.CustomerSku
 union
 
-select 'RETAIL_PLAN' AS CATEGORY,bpc.Customer_Code AS CUSTOMER_CODE,bpc.Customer_S AS CUSTOMER_S,'CC_GB01' AS [C_CODE],'PR_' + stk.CustomerSku as PROUDUCT,'RP_STOCK_U' as RP_ACCOUNT,	'RP_CUS' as RP_AUDITTRAIL,	'BRANDVAL' as BRAND,	'2016.P01.W'+case when datepart(week,getdate())<10 then '0' else '' end ++cast(datepart(week,getdate()) as varchar(2)) as TIME_WKS,sum(coalesce(stk.stockqty,0)) as [AMOUNT]
+select 'RETAIL_PLAN' AS CATEGORY,bpc.Customer_Code AS CUSTOMER_CODE,bpc.Customer_S AS CUSTOMER_S,'CC_GB01' AS [C_CODE],'PR_' + stk.CustomerSku as PROUDUCT,'RP_SALES_U' as RP_ACCOUNT,	'RP_CUS' as RP_AUDITTRAIL,	'BRANDVAL' as BRAND,	'2016.P01.W'+case when datepart(week,getdate())<10 then '0' else '' end ++cast(datepart(week,getdate()) as varchar(2)) as TIME_WKS,sum(coalesce(stk.stockqty,0)) as [AMOUNT]
  from MSE_PortalEposFigures stk
   inner join mse_portalcustomers pc on pc.customerid=stk.CustomerID
  left outer join MSE_BPCExports bpc on bpc.CustomerID=pc.CustomerID
+  left outer join MSE_BPCWeeklyExports bpce on bpce.weekno=datepart(week,getdate()) and bpce.year=datepart(year,getdate())
 where coalesce(bpc.SalesExportEnabled,0) in (1,0) 
 and cast(stk.eposdate as date)=cast(dateadd(day,((datepart(weekday,getdate())+6)*-1),getdate()) as date)
+and bpce.salesExportFilename is  null
 group by bpc.Customer_Code,bpc.Customer_S,stk.CustomerSku
 
-) as a ").ToString());
+) as a").ToString());
 
                 if (outstandingReportCount > 0)
                 {
-
-
-
-                    List<string> fileList = new List<string>(); string filePath = @"\\10.16.72.129\company\FTP\root\MSESRVDOM\bpc\Out\WeeklyExports\";
-                    DataSet ds = Common.runSQLDataset(string.Format("exec [sp_bpcfilecontents]", 0));
-
-                    string bpcLinesContent = Common.dataTableToTextFile(ds.Tables[0], ",", "\r\n", true);
-                    if (File.Exists(filePath + fileName))
-                        File.Delete(filePath + fileName);
-
-                    File.AppendAllText(filePath + fileName, bpcLinesContent);
-                    fileList.Add(filePath + fileName);
-
-
-
-
-
-
-
-                    string insertSQL = "insert into MSE_BPCWeeklyExports values (datepart(week,getdate()),'" + fileName + "',getdate())";
-                    try
+                    string type = "";
+                    for (int i = 0; i < 3; i++)
                     {
 
-                        if (true)
+
+
+
+
+                        switch (i)
                         {
-                            Common.runSQLNonQuery(insertSQL);
+                            case 0:
+                                type = "intake";
+                                break;
+                            case 1:
+                                type = "stock";
+                                break;
+                            case 2:
+                                type = "sales";
+                                break;
                         }
+                        int outstandingExportCount = int.Parse(Common.runSQLScalar(@"select count(*) from MSE_BPCWeeklyExports where datepart(week,getdate())=WeekNo and datepart(year,getdate())=year
+and (" + type + "ExportFilename is null)").ToString());
 
-                    }
-                    catch (Exception ex)
-                    {
+                        if (outstandingExportCount == 0)
+                            continue;
 
+                        string fileName = string.Format("BPC_Exertis_Export_{0}_{1}.csv", type, Common.timestamp());
+                        switch (i)
+                        {
+                            case 0:
+                                intakeFilename = fileName;
+                                break;
+                            case 1:
+                                stockFilename = fileName;
+                                break;
+                            case 2:
+                                salesFilename = fileName;
+                                break;
+                        }
+                        List<string> fileList = new List<string>();
+                        string filePath = @"\\10.16.72.129\company\FTP\root\MSESRVDOM\bpc\Out\WeeklyExports\";
+                        DataSet ds = Common.runSQLDataset(string.Format("exec [sp_bpcfilecontents_{0}]", type));
+
+                        string bpcLinesContent = Common.dataTableToTextFile(ds.Tables[0], ",", "\r\n", true);
+                        if (File.Exists(filePath + fileName))
+                            File.Delete(filePath + fileName);
+
+                        File.AppendAllText(filePath + fileName, bpcLinesContent);
+                        fileList.Add(filePath + fileName);
+                        string updateSQL = "";
+                        if (i == 0)
+                        {
+                            updateSQL = "update MSE_BPCWeeklyExports set IntakeExportFilename='',IntakeExportDate=getdate() where weekno=datepart(week,getdate()) and year=datepart(year,getdate())";
+                        }
+                        if (i == 1)
+                        {
+                            updateSQL = "update MSE_BPCWeeklyExports set StockExportFilename='',StockExportDate=getdate() where weekno=datepart(week,getdate()) and year=datepart(year,getdate())";
+                        }
+                        if (i == 2)
+                        {
+                            updateSQL = "update MSE_BPCWeeklyExports set SalesExportFilename='',SalesExportDate=getdate() where weekno=datepart(week,getdate()) and year=datepart(year,getdate())";
+                        }
+                        try
+                        {
+
+                            if (updateSQL!="")
+                            {
+                                Common.runSQLNonQuery(updateSQL);
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Common.log("BPC Weekly Export error");
+                        }
                     }
+
+
+
+
+
 
                 }
             }

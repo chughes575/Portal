@@ -1,0 +1,127 @@
+﻿
+#MainContent_txCommsAction
+{
+	display: none;
+}
+
+.comms-header
+{	
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	color: #fff;
+}
+
+.comms-header #MainContent_lbCommsTitle,
+.comms-header #MainContent_lbStatusMessage
+{
+	min-width: 400px;
+	width: 400px;
+	margin: 0 0 0 15px;
+	font-weight: bold;
+	color: #fff;
+	background: transparent;
+	border: none;
+}
+
+.comms-header #MainContent_lbStatusMessage
+{
+	float: right;
+}
+
+.box
+{
+	padding: 10px;
+	background-color: #e8e8e8;
+	border: 1px solid #ccc;
+}
+
+.box-1
+{
+	width: 685px;
+}
+
+.box-2
+{
+	width: 505px;
+}
+
+.box-3
+{
+	margin: 10px 0 0 0;
+}
+
+#contactPanel, 
+#subjectPanel,
+#messagePanel
+{
+	width: 660px;
+	margin: 0 0 10px 0;
+}
+
+#contactPanel .label, 
+#subjectPanel .label,
+#messagePanel .label
+{
+	padding: 5px 0;
+	width: 75px;
+}
+
+#contactPanel input, 
+#subjectPanel input,
+#messagePanel input
+{
+	width: 550px;
+	margin: 0 0 10px 0;
+}
+
+
+#MainContent_txBody
+{
+	width: 660px;
+}
+
+/*
+	
+	asset manager
+	
+*/
+
+#attachment-panel
+{
+	width: 485px;
+	height: 540px;
+	margin: 0 0 10px 10px;
+}
+
+#asset-manager-title
+{
+	padding: 10px;
+	font-size: 17px;
+}
+
+#toggle-select-wrapper, 
+#attachment-checkbox-wrapper
+{
+	width: 440px;
+	padding: 7px 0;
+	margin: 0 0 10px 0;
+}
+
+#toggle-select-wrapper input, 
+#attachment-checkbox-wrapper input
+{
+	margin: 0 10px;
+	vertical-align: middle;
+}
+
+#attachment-checkbox-wrapper td
+{
+	padding: 3px 0;
+}
+
+#MainContent_btnSend
+{
+	margin: 0 1px 0 0;
+	padding: 4px 15px;
+}

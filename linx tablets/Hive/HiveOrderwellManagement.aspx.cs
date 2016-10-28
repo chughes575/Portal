@@ -114,5 +114,23 @@ namespace linx_tablets.Hive
             string filename = "BritishGas_Orders_Rolling_Report_" + Common.timestamp() + ".csv";
             runReport("[sp_HiveBritishGasOrders] 1", filename);
         }
+
+        protected void btnDownloadDispatches_Click(object sender, EventArgs e)
+        {
+            runReport(@"select a.OrderDate,count(Order_number) as Orders,shipunits.TotalShipped as Units from(
+select distinct dateadd(day, (datepart(weekday,cast(despatch_date as date))*-1)+1,cast(despatch_date as date)) OrderDate,order_number
+ from MSE_OracleddispatchadvicePortal where customerid=5
+ )  a
+ left outer join (select  dateadd(day, (datepart(weekday,cast(despatch_date as date))*-1)+1,cast(despatch_date as date)) OrderDate,sum(cast(Ship_Quantity as int)) as TotalShipped
+ from MSE_OracleddispatchadvicePortal where customerid=5
+ group by dateadd(day, (datepart(weekday,cast(despatch_date as date))*-1)+1,cast(despatch_date as date))) as shipunits on shipunits.OrderDate=a.OrderDate
+ group by a.OrderDate,shipunits.TotalShipped
+ order by a.OrderDate desc", "Dispatches_weekly_report_" + Common.timestamp() + ".csv");
+        }
+
+        protected void btnDownloadVendorSalesOut_Click(object sender, EventArgs e)
+        {
+            runReport("select * from vw_vednorsalesoutweeks order by orderdate desc", "Vendor_sales_out_weekly_report_" + Common.timestamp() + ".csv");
+        }
     }
 }

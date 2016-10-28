@@ -1,0 +1,87 @@
+﻿
+.filter-wrapper 
+{
+	width: 1180px;
+	margin: 30px 0 15px 0;
+	padding: 10px;
+	background-color: #495565;
+}
+
+#filter-toggle 
+{
+	margin: 0 7px 0 0;
+	line-height: 35px;
+	font-size: 20px;
+	color: #ccc;
+	cursor: pointer;
+}
+
+.field-label 
+{
+	line-height: 35px;
+	font-size: 14px;
+	color: #fff;
+}
+
+.search-button-wrapper,
+.date-range-wrapper
+{
+	float: right;
+}
+
+.dd-wrapper {
+	float: left;
+}
+
+.search-btn 
+{
+	padding: 7px 20px;
+}
+
+input, 
+select, 
+textarea 
+{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+input 
+{
+	padding: 7px 2px;
+}
+
+select 
+{
+	padding: 5px 2px;
+}
+
+.date-range-wrapper input
+{
+	margin: 0 2px;
+}
+
+.bar-chart 
+{
+	width: 600px;
+	height: 500px;
+	margin: 15px 0;
+}
+
+#chart_3 
+{
+	width: 1200px;
+	height: 500px;
+}
+
+/* hide | show */
+.dd-wrapper 
+{
+	display: none;
+}
+
+#MainContent_ddClaimReport_FilterUser 
+{ /* hide user filter */
+	display: none;
+}

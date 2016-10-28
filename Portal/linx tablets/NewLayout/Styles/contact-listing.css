@@ -1,0 +1,96 @@
+﻿
+.contacts
+{
+	width: 1200px;
+	margin: 0 0 70px 0;
+	position: relative;
+	/*overflow-x: scroll;*/
+}
+
+.contacts #MainContent_dvContactHeader 
+{
+	width: 100%;
+	height: 50px;
+	margin-top: 20px;
+	line-height: 50px;
+	background-color: #1c232c;
+	border: 1px solid #999;
+	color: #d2873b;
+}
+
+.contacts #search-label 
+{
+	padding: 0 7px 0 15px;
+}
+
+.contacts #MainContent_btnContactGV_Search 
+{
+	margin: 8px 5px 0 10px;
+	padding: 5px 15px;
+	float: left;
+}
+
+.contacts #MainContent_txContactGV_Search
+{
+	width: 150px;
+}
+
+.contacts #MainContent_ddContactGV_FilterVendor
+{
+	width: 570px;
+}
+
+.contacts #MainContent_ddContactGV_FilterAccountContact
+{
+	width: 230px;
+}
+
+.gridview .contact-name
+{
+	width: 230px;
+}
+
+.gridview .vendor
+{
+	width: 250px;
+}
+
+.gridview .contact-email
+{
+	width: 250px;
+}
+
+.gridview .tel-1
+{
+	width: 190px;
+}
+
+.gridview .contact-type
+{
+	width: 130px;
+}
+
+.gridview .contact-name-input
+{
+	width: 220px;
+}
+
+.gridview .vendor-input
+{
+	width: 240px;
+}
+
+.gridview .contact-email-input
+{
+	width: 240px;
+}
+
+.gridview .tel-1-input
+{
+	width: 180px;
+}
+
+.gridview .contact-type-input
+{
+	width: 120px;
+}

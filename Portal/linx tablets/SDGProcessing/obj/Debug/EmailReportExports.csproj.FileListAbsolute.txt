@@ -1,0 +1,23 @@
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.exe.config
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.pdb
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Debug\ActiveUp.Net.Common.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Debug\ActiveUp.Net.Imap4.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Debug\ActiveUp.Net.Mail.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\bin\Debug\MSE_Common.dll
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\obj\Debug\EmailReportExports.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\obj\Debug\SDGProcessing.exe
+C:\Users\Chris\Downloads\Portal-master\Portal-master\nexus 7\linx tablets\SDGProcessing\obj\Debug\SDGProcessing.pdb
+C:\Users\Chris\Documents\nexus 7\nexus 7\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.exe.config
+C:\Users\Chris\Documents\nexus 7\nexus 7\linx tablets\SDGProcessing\obj\Debug\SDGProcessing.exe
+C:\Users\Chris\Documents\nexus 7\nexus 7\linx tablets\SDGProcessing\obj\Debug\SDGProcessing.pdb
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.exe.config
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\obj\Debug\SDGProcessing.exe
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\obj\Debug\SDGProcessing.pdb
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.exe
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\bin\Debug\SDGProcessing.pdb
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\bin\Debug\ActiveUp.Net.Common.dll
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\bin\Debug\ActiveUp.Net.Imap4.dll
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\bin\Debug\ActiveUp.Net.Mail.dll
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\bin\Debug\MSE_Common.dll
+C:\Portal Repo\Portal\linx tablets\SDGProcessing\obj\Debug\EmailReportExports.csprojResolveAssemblyReference.cache

@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-lg-12 download-page">
                 <div class="row">
-                    <h1>Argos Product Forecasting</h1>
+                    <h1>Argos Product Forecasting & Intake Upload</h1>
                     
 
                 <br />
@@ -108,6 +108,14 @@
                             <asp:ListItem Value="14" Text="14"></asp:ListItem>
                             <asp:ListItem Value="15" Text="15"></asp:ListItem>
                             </asp:DropDownList> <asp:Button ID="btnUpdateForecastUsed" runat="server" OnClick="btnUpdateForecastUsed_Click" Text="Update" />
+                
+                
+                
+                <h2> Sell Through Overwrite</h2>
+                    
+                    Sell Through Overwrite Percentage (Whole number greater than zero required): <asp:TextBox ID="txtSellThroughPercentage" ValidationGroup="sellThrough" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="sellThruRegex" runat="server" ValidationGroup="sellThrough" ValidationExpression="^[1-9][0-9]*$" ErrorMessage="Please enter a whole number greater than zero" ControlToValidate="txtSellThroughPercentage"></asp:RegularExpressionValidator>
+                    <asp:Button ID="btnUpdateSellThroughOverwrite" ValidationGroup="sellThrough" runat="server" Text="Update Sell Through" OnClick="btnUpdateSellThroughOverwrite_Click" />
                 </div>
             </div>
         </div>

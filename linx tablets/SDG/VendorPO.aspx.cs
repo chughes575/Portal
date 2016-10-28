@@ -43,12 +43,12 @@ namespace linx_tablets.SDG
                 case "1":
                     if (ddlAllSuppliers.SelectedIndex != 0)
                         spParam = "'" + ddlAllSuppliers.SelectedValue + "'";
-                    runReport("exec [sp_genericPoSuggestions] @customerid=" + customerID + ", @vendorname=" + spParam + ", @all=0", "POSuggestions_All_" + Common.timestamp() + ".csv");
+                    runReport("exec [sp_sdgPoSuggestions] @customerid=" + customerID + ", @vendorname=" + spParam + ", @all=0", "POSuggestions_All_" + Common.timestamp() + ".csv");
                     break;
                 case "2":
                     if (ddlSuppliers.SelectedIndex != 0)
                         spParam = "'" + ddlSuppliers.SelectedValue + "'";
-                    runReport("exec sp_genericPoSuggestions " + customerID + ", @vendorname=" + spParam + ", @all=1", "POSuggestions_" + Common.timestamp() + ".csv");
+                    runReport("exec sp_sdgPoSuggestions " + customerID + ", @vendorname=" + spParam + ", @all=1", "POSuggestions_" + Common.timestamp() + ".csv");
                     break;
             }
 

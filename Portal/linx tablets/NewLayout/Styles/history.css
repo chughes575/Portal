@@ -1,0 +1,89 @@
+﻿
+body 
+{
+	background-image: none;
+	background-color: #414a56;
+}
+
+#form1 
+{
+	width: 1128px;
+	height: 628px;
+	padding: 15px;
+	overflow-x: visible;
+	overflow-y: hidden;
+}
+
+.header, 
+.footer, 
+.main-content
+{
+	width: 100%;
+}
+
+
+.header #header-title
+{
+	height: 37px;
+	padding: 0 25px 0 0;
+	line-height: normal;
+	color: #fff;
+}
+
+.header #header-rhs 
+{
+	float: right;
+}
+
+.header, 
+.header a
+{
+	color: #fff;
+}
+
+.header #header-message 
+{
+	margin: 0;
+}
+
+.header #dvHistoryHeader 
+{
+	width: 980px;
+}
+
+#header-close-btn 
+{
+	float: right;
+}
+
+#dvGVFilters 
+{
+	margin: 0 15px 0 0;
+	float: right;
+}
+
+.gv-filters div
+{
+	padding: 8px 10px;
+	height: 19px;
+	color: #cdcdcd;
+}
+
+.gv-filters div.true
+{
+	padding: 8px 10px;
+	height: 19px;
+	color: #fff;
+}
+
+
+.gridview 
+{
+	min-width: 1128px;
+}
+
+.gridview td.action-column
+{
+	min-width: 15px;
+	width: 15px;
+}

@@ -51,6 +51,12 @@ namespace linx_tablets.Account
                 {
                     Response.Redirect("~/Dixons/Home.aspx");
                 }
+                else if (User.IsInRole("BPCgroup"))
+                {
+                    Response.Redirect("~/bpc/Home.aspx");
+                }
+                    
+
                     
                 else
                 {

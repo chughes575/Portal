@@ -1,0 +1,11 @@
+C:\nexus 7\LinxCommon\obj\Debug\LinxCommon.csprojResolveAssemblyReference.cache
+C:\nexus 7\LinxCommon\bin\Debug\LinxCommon.dll
+C:\nexus 7\LinxCommon\bin\Debug\LinxCommon.pdb
+C:\nexus 7\LinxCommon\bin\Debug\MSE_Common.dll
+C:\nexus 7\LinxCommon\bin\Debug\NPOI.dll
+C:\nexus 7\LinxCommon\bin\Debug\NPOI.OOXML.dll
+C:\nexus 7\LinxCommon\bin\Debug\NPOI.OpenXml4Net.dll
+C:\nexus 7\LinxCommon\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\nexus 7\LinxCommon\bin\Debug\Tamir.SharpSSH.dll
+C:\nexus 7\LinxCommon\obj\Debug\LinxCommon.dll
+C:\nexus 7\LinxCommon\obj\Debug\LinxCommon.pdb
